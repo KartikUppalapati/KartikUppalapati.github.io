@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Kartik's Website</title>
+        <link rel="stylesheet" href="mystyle.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#home" onclick="animate()" id="homehref">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a id="contact" href="#open-modal">Contact</a>
+            <div id="open-modal" class="modal-window">
+                <div style="text-align: center;">
+                  <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
+                  <h1 style="font-size: 40px;">Contact Me</h1>
+                  <p style="padding-bottom: 15px;">Directly at kartik0109@gmail.com or use this form</p>
+                  <div class="contactMe">
+                    <form onsubmit="sendEmail();">
+                        <input name="customerName" placeholder="Name *" required="" type="text">
+                        <input name="customerEmail" required="" placeholder="Email *" type="email">
+                        <input name="customerDescription" placeholder="Description" type="text">
+                        <button class="submit">Send</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progressHeader">
+            <div class="progressContainer">
+              <div class="progressBar" id="myBar"></div>
+            </div> 
+        </div>
+
+        <div class="container" onscroll="myFunction()">
+            <section id="home">
+                <div style="margin: auto;">
+                    <div style="text-align: center;">
+                        <h1 style="font-size: 100px; color: blanchedalmond;">Kartik Uppalapati</h1>
+                        <p style="color: blanchedalmond; font-size: 40px;">Software/Cloud Engineer</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="aboutStuff">
+                    <div class="aboutContentHolder">
+                        <div class="aboutContent">
+                            <h1>I'm Kartik Uppalapati</h1>
+                            <br>
+                            <p>Purdue Class of 2022</p>
+                            <p>Math and Computer Science</p>
+                            <p>Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="typewriter1">
+                    <div class="typewriterItem1" style="padding-top: 275px; padding-bottom: 10px; padding-right: 5px;">
+                        <h1 style="font-size: 100px; color: blanchedalmond;">About Me</h1>
+                        <a href="Kartik U Resume.pdf" download target="_blank" class="resumeButton fill" style="color: black; text-decoration: none;">My Resume</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="projects">
+                <div class="typewriter2">
+                    <h1 class="typewriterItem2" style="
+                    font-size: 100px;
+                    padding-top: 300px;
+                    padding-right: 350px;
+                    color: blanchedalmond;"
+                    >
+                    My Projects
+                    </h1>
+                </div>
+                <div class="cardHolder">
+                    <div id="cardstuff" class="cardStuff">
+                        <div id="buttondiv1">
+                            <button id="buttondiv1button" onclick="prevCard()">&larr;</button>
+                        </div>
+                        <div class="card">
+                            <div class="content">
+                                <h2 id="cardContentNum">1</h2>
+                                <h3 id="cardContentName">Snake Game</h3>
+                                <p id="cardContentDescription"><span>This is a snake game with a hidden easter egg. Try and find it.</span></p>
+                                <a id="cardContentHref" href="snake.html">Click To Play</a>
+                            </div>
+                        </div>
+                        <div id="buttondiv2">
+                            <button id="buttondiv2button" onclick="nextCard()">&rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="veryBottom" id="bottom">
+                <p style="text-align: center;">Statistics are publicly available at <a id="statsref" href="/stats">/stats</a></p>
+                <p style="text-align: center;">Created 5/11/2022 12:13 AM</p>
+                <p style="text-align: center;">Hosted in a C server</p>
+            </div>
+        </div>
+
+        <script>
+            // Initialize variables
+            var cardNum = 1;
+            const cardLinks =
+            [
+                "snake.html",
+                "https://www.bmwusa.com/",
+                "index.html"
+            ]
+            const cardNames = 
+            [
+                "Snake Game", 
+                "BMW", 
+                "This Website"
+            ];
+            const cardDescriptions = 
+            [
+                "This is a snake game with a hidden easter egg. Try and find it.", 
+                "BMW description", 
+                "I created this website from scratch using HTML, CSS, and Javascript and hosted it on my own web server to display my portfolio"
+            ];
+
+            // Adding this prevents project card to home page scroll bug
+            function animate() 
+            {
+                var myNameElement = document.getElementById("myname");
+            }
+
+            // Go to next card if not at end
+            function nextCard()
+            {
+                if (cardNum < cardNames.length)
+                {
+                    // Get elements
+                    var cardElementNum = document.getElementById("cardContentNum");
+                    var cardElementName = document.getElementById("cardContentName");
+                    var cardElementDescription = document.getElementById("cardContentDescription");
+                    var cardElementHref = document.getElementById("cardContentHref");
+
+                    // Change elements
+                    cardElementNum.innerHTML = cardNum + 1;
+                    cardElementName.innerHTML = cardNames[cardNum];
+                    cardElementDescription.innerHTML = cardDescriptions[cardNum];
+                    cardElementHref.setAttribute("href", cardLinks[cardNum]);
+
+                    // Adjust global card num
+                    cardNum = cardNum + 1
+                }
+            }
+
+            // Go to prev card if not at 1st card
+            function prevCard()
+            {
+                // If not out of bounds
+                if (cardNum - 1 > 0)
+                {
+                    // Get elements
+                    var cardElementNum = document.getElementById("cardContentNum");
+                    var cardElementName = document.getElementById("cardContentName");
+                    var cardElementDescription = document.getElementById("cardContentDescription");
+                    var cardElementHref = document.getElementById("cardContentHref");
+
+                    // Change elements
+                    cardElementNum.innerHTML = cardNum - 1;
+                    cardElementName.innerHTML = cardNames[cardNum - 2];
+                    cardElementDescription.innerHTML = cardDescriptions[cardNum - 2];
+                    cardElementHref.setAttribute("href", cardLinks[cardNum - 2]);
+
+                    // Adjust global card num
+                    cardNum = cardNum - 1
+                }
+            }
+
+            // Observer to add and remove animation when entering and leaving viewport
+            const observer1 = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const myName = entry.target.querySelector('.typewriterItem2');
+
+                    if (entry.isIntersecting) {
+                        myName.classList.add('itemAnimationRight');
+                        return;
+                    }
+
+                    // Not in viewport
+                    myName.classList.remove('itemAnimationRight');
+                });
+            });
+
+            observer1.observe(document.querySelector('.typewriter2'));
+
+            function sendEmail()
+            {
+                //alert("Email Successfully Sent!");
+            }
+
+            // When the user scrolls the page, execute myFunction
+            function myFunction() 
+            {
+                var containerObject = document.querySelector('.container');
+                var winScroll = containerObject.scrollTop || containerObject.scrollTop;
+                var height = containerObject.scrollHeight - containerObject.clientHeight;
+                var scrolled = (winScroll / height) * 100;
+                document.getElementById("myBar").style.width = scrolled + "%";
+            }
+        </script>
+    </body>
+</html>

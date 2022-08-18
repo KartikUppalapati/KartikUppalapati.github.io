@@ -1,0 +1,571 @@
+html 
+{
+    scroll-padding-top: 3rem;
+}
+
+body 
+{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    background-color: lightblue;
+}
+
+.container
+{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+.container::-webkit-scrollbar 
+{ 
+    display: none;  /* Safari and Chrome */
+}
+
+.container section
+{
+    width: 100vw;
+    height: 100vh;
+    padding: 25px;
+    display: flex;
+    scroll-snap-align: start;
+}
+
+/* Animate all big text */
+.typewriterItem
+{
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.typewriterItem1
+{
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.typewriterItem2
+{
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.aboutStuff
+{
+    padding-top: 270px;
+    padding-left: 50px;
+    padding-right: 550px;
+}
+
+.aboutContentHolder
+{   
+    padding: 15px 15px 15px 15px;
+    border-radius: 15px;
+    background-color: blanchedalmond;
+}
+
+.aboutContent
+{
+    padding: 15px 15px 15px 15px;
+    border: 1.5px solid black;
+}
+
+.itemAnimationRight
+{
+    animation: moveFromRight 1s;
+}
+
+@keyframes moveFromRight 
+{
+    from {padding-right: 1500px}
+    to {padding-right: 350px}
+}
+
+/* For top navigation bar */
+.navbar 
+{
+    top: 0;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    background: #333;
+    z-index: 1000;
+    background-color: #333;
+}
+
+.navbar a 
+{
+    float: inline-end;
+    color: #f2f2f2;
+    text-align: end;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover 
+{
+    background: #ddd;
+    color: black;
+}
+
+/* For project cards */
+.cardHolder
+{
+    padding-top: 150px;
+    width: 100%;
+}
+
+.cardStuff
+{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding-left: 75px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: blanchedalmond;
+}
+
+.container .card
+{
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    border-radius: 15px;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    background: lightblue;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+* /* idk what this is or why it works */
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* Remaining card stuff */
+.container .card .content
+{
+    padding: 20px;
+    text-align: center;
+    max-height: 100%;
+    max-width: 100%;
+    /*transform: translateY(100px);*/
+    opacity: 1;
+    transition: .25s;
+}
+
+.container .card:hover .content
+{
+    top: auto;
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.container .card .content h2
+{
+    position: relative;
+    font-size: 8rem;
+    color: rgb(78, 78, 78);
+    pointer-events: none;
+}
+
+.container .card .content h3
+{
+    padding-top: -50px;
+    font-size: 1.8rem;
+    color: #fff;
+    z-index: 1;
+}
+
+.container .card .content p
+{
+    font-size: 1rem;
+    color: rgb(110, 110, 110);
+    font-weight: 300;
+}
+
+.container .card .content a:hover
+{
+    color: white;
+    background-color: black;
+}
+
+.container .card .content a
+{
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 15px;
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* For project card arrow buttons */
+#buttondiv1
+{
+    padding-top: 200px;
+}
+
+#buttondiv1button
+{
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+#buttondiv1button:active 
+{
+    top: 3px;
+    box-shadow: none;
+}
+
+#buttondiv2
+{
+    padding-top: 200px;
+}
+
+#buttondiv2button
+{
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+#buttondiv2button:active 
+{
+    top: 3px;
+    box-shadow: none;
+}
+
+#cardstuff div button
+{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    line-height: 1px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 100px;
+    border: 2px solid white;
+    background-color: white;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+    transition: .25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#cardstuff div button:hover
+{
+    cursor:pointer;
+    transition: .15s;
+    color: lightblue;
+    background-color: white;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+/* For contact info */
+.modal-window 
+{
+    position: fixed;
+    background-color: rgba(200, 200, 200, 0.75);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.modal-window:target 
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window > div 
+{
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 2rem;
+    background: #fff;
+    color: #444;
+}
+
+.modal-window header 
+{
+    font-weight: bold;
+}
+
+.modal-close 
+{
+    top: 0;
+    right: 0;
+    width: 10px;
+    font-size: 80%;
+    line-height: 5px;
+    position: absolute;
+    text-align: center;
+}
+
+.modal-window h1 
+{
+    font-size: 150%;
+    margin: 0 0 15px;
+}
+
+/* Contact form stuff */
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+
+.contactMe
+{
+    background: #f8f4e5;
+    padding: 50px 100px;
+    padding-left: 25px;
+    border: 2px solid black;
+}
+
+input 
+{
+    display: block;
+    width: 100%;
+    font-size: 14pt;
+    line-height: 28pt;
+    margin-bottom: 28pt;
+    border: none;
+    border-bottom: 5px solid black;
+    background: #f8f4e5;
+    min-width: 350px;
+    padding-left: 5px;
+    outline: none;
+    color: black;
+}
+
+
+.navbar button 
+{
+    margin: 0;
+    outline: none;
+    margin-top: 15px;
+    margin-bottom: -10px;
+    padding: 0 158px;
+    line-height: 28pt;
+    letter-spacing: 2px;
+    background: #ffa580;
+    border: 1px solid black;
+    transition: 0.1s all ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar button:active 
+{
+    top: 3px;
+    box-shadow: none;
+}
+
+.navbar button:hover 
+{
+    cursor:pointer;
+    color: white;
+    background: black;
+    border: 1px solid black;
+}
+
+input:-webkit-autofill:focus 
+{
+    border-bottom: 5px solid #95a4ff;
+    -webkit-text-fill-color: #2A293E;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Scroll icons */
+.mouseDownDiv
+{
+    z-index: 1;
+    position: relative;
+}
+
+.mouseDownDiv span 
+{
+    width: 20px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+}
+
+.mouseDownDiv span::before 
+{
+    top: 3px;
+    left: 50%;
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    position: absolute;
+    border-radius: 100%;
+    background-color: #fff;
+    -webkit-animation: scrollAnimation 2s infinite .5s;
+    animation: scrollAnimation 2s infinite .5s;
+    box-sizing: border-box;
+}
+
+@-webkit-keyframes scrollAnimation 
+{
+    0% 
+    {
+        -webkit-transform: translate(0, 0);
+        opacity: 0;
+    }
+    40% 
+    {
+        opacity: 1;
+    }
+    80% 
+    {
+        -webkit-transform: translate(0, 20px);
+        opacity: 0;
+    }
+    100% 
+    {
+        opacity: 0;
+    }
+}
+
+@keyframes scrollAnimation 
+{
+    0% 
+    {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    40% 
+    {
+        opacity: 1;
+    }
+    80% 
+    {
+        transform: translate(0, 20px);
+        opacity: 0;
+    }
+    100% 
+    {
+        opacity: 0;
+    }
+}
+
+/* Scroll progress bar stuff */
+.progressHeader 
+{
+    position: fixed;
+    top: 43px;
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.progressContainer 
+{
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+}
+
+.progressBar 
+{
+    height: 8px;
+    background: blanchedalmond;
+    width: 0%;
+}
+
+/* Resume button */
+.resumeButton
+{
+    float: right;
+    cursor:pointer;
+    transition: .25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.resumeButton:active 
+{
+    top: 3px;
+}
+
+/* Any button with fill class */
+.fill 
+{
+    outline: 0;
+    font-size: 20px;
+    font-weight: 200;
+    cursor: pointer;
+    position: relative;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.fill::after 
+{
+    content: "";
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+    position: absolute;
+    background-color: blanchedalmond;
+}
+
+.fill:hover::after 
+{
+    top: 0px;
+    left: 0px;
+}
+
+/* Social icons */
