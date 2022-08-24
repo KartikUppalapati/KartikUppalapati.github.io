@@ -14,26 +14,32 @@
                 <div style="text-align: center;">
                   <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
                   <h1 style="font-size: 40px;">Contact Me</h1>
-                  <p style="padding-bottom: 15px;">Directly at kartik0109@gmail.com or use this form</p>
-                  <div class="contactMe">
-                    <form onsubmit="sendEmail();">
-                        <input name="customerName" placeholder="Name *" required="" type="text">
-                        <input name="customerEmail" required="" placeholder="Email *" type="email">
-                        <input name="customerDescription" placeholder="Description" type="text">
-                        <button class="submit">Send</button>
-                    </form>
-                  </div>
+                  <p style="padding-bottom: 15px;">kartik0109@gmail.com</p>
+                  <p style="padding-bottom: 15px;">https://www.linkedin.com/in/kartik-uppalapati-9a6292187/</p>
+                  <p style="padding-bottom: 15px;">https://github.com/KartikUppalapati?tab=repositories</p>
+                  <!--
+                    <div class="contactMe">
+                        <form onsubmit="sendEmail();">
+                            <input name="customerName" placeholder="Name *" required="" type="text">
+                            <input name="customerEmail" required="" placeholder="Email *" type="email">
+                            <input name="customerDescription" placeholder="Description" type="text">
+                            <button class="submit">Send</button>
+                        </form>
+                    </div>
+                -->
                 </div>
             </div>
         </div>
 
-        <div class="progressHeader">
-            <div class="progressContainer">
-              <div class="progressBar" id="myBar"></div>
-            </div> 
-        </div>
+        <!--
+            <div class="progressHeader">
+                <div class="progressContainer">
+                <div class="progressBar" id="myBar"></div>
+                </div> 
+            </div>
+        -->
 
-        <div class="container" onscroll="myFunction()">
+        <div class="container" onscroll="getScrollLevel()">
             <section id="home">
                 <div style="margin: auto;">
                     <div style="text-align: center;">
@@ -44,83 +50,89 @@
             </section>
 
             <section id="about">
-                <div class="aboutStuff">
-                    <div class="aboutContentHolder">
-                        <div class="aboutContent">
-                            <h1>I'm Kartik Uppalapati</h1>
-                            <br>
-                            <p>Purdue Class of 2022</p>
-                            <p>Math and Computer Science</p>
-                            <p>Software Engineer</p>
+                <div class="flexContainer">
+                    <div class="flexChild">
+                        <div class="aboutContentHolder">
+                            <div class="aboutContent">
+                                <h1>I'm Kartik Uppalapati</h1>
+                                <br>
+                                <p>Purdue Class of 2022</p>
+                                <p>Math and Computer Science</p>
+                                <p>Software/Cloud Engineer</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="typewriter1">
-                    <div class="typewriterItem1" style="padding-top: 275px; padding-bottom: 10px; padding-right: 5px;">
-                        <h1 style="font-size: 100px; color: blanchedalmond;">About Me</h1>
-                        <a href="Kartik U Resume.pdf" download target="_blank" class="resumeButton fill" style="color: black; text-decoration: none;">My Resume</a>
+                    <div class="flexChild">
+                        <div>
+                            <h1 style="font-size: 100px; color: blanchedalmond; text-align: right;">About Me</h1>
+                        </div>
+                        <div>
+                            <a href="Kartik U Resume.pdf" download target="_blank" 
+                            class="resumeButton fill" style="color: black; text-decoration: none;">My Resume</a>
+                        </div>
                     </div>
                 </div>
             </section>
             
             <section id="projects">
-                <div class="typewriter2">
-                    <h1 class="typewriterItem2" style="
-                    font-size: 100px;
-                    padding-top: 300px;
-                    padding-right: 350px;
-                    color: blanchedalmond;"
-                    >
-                    My Projects
-                    </h1>
-                </div>
-                <div class="cardHolder">
-                    <div id="cardstuff" class="cardStuff">
-                        <div id="buttondiv1">
-                            <button id="buttondiv1button" onclick="prevCard()">&larr;</button>
+                <div class="flexContainer">
+                    <div class="flexChild">
+                        <div>
+                            <h1 style="font-size: 100px; color: blanchedalmond;">My Projects</h1>
                         </div>
-                        <div class="card">
-                            <div class="content">
-                                <h2 id="cardContentNum">1</h2>
-                                <h3 id="cardContentName">Snake Game</h3>
-                                <p id="cardContentDescription"><span>This is a snake game with a hidden easter egg. Try and find it.</span></p>
-                                <a id="cardContentHref" href="snake.html">Click To Play</a>
+                    </div>
+                    <div class="flexChild typewriter2" style="overflow: hidden;">
+                        <div class="cardHolder typewriterItem2" style=" width: 65%; margin-left: 35%;">
+                            <div id="cardstuff" class="cardStuff" style="align-items: center;">
+                                <div id="buttondiv1" style="width: 15%;">
+                                    <button id="buttondiv1button" onclick="prevCard()">&larr;</button>
+                                </div>
+                                <div class="card" style="width: 70%;">
+                                    <div class="content">
+                                        <h2 id="cardContentNum">1</h2>
+                                        <h3 id="cardContentName">This Website</h3>
+                                        <p id="cardContentDescription"><span>I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects.</span></p>
+                                        <a id="cardContentHref" href="index.html">Click To Refresh</a>
+                                    </div>
+                                </div>
+                                <div id="buttondiv2" style="width: 15%;">
+                                    <button id="buttondiv2button" onclick="nextCard()">&rarr;</button>
+                                </div>
                             </div>
-                        </div>
-                        <div id="buttondiv2">
-                            <button id="buttondiv2button" onclick="nextCard()">&rarr;</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <div class="veryBottom" id="bottom">
-                <p style="text-align: center;">Statistics are publicly available at <a id="statsref" href="/stats">/stats</a></p>
-                <p style="text-align: center;">Created 5/11/2022 12:13 AM</p>
-                <p style="text-align: center;">Hosted in a C server</p>
-            </div>
+            <!--
+                <div class="veryBottom" id="bottom">
+                    <p style="text-align: center;">Statistics are publicly available at <a id="statsref" href="/stats">/stats</a></p>
+                    <p style="text-align: center;">Created 5/11/2022 12:13 AM</p>
+                    <p style="text-align: center;">Hosted in a C server</p>
+                </div>
+            -->
         </div>
 
         <script>
             // Initialize variables
             var cardNum = 1;
+            const cardNames = 
+            [
+                "This Website",
+                "Snake Game", 
+                "BMW"
+            ];
+            const cardDescriptions = 
+            [
+                "I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects",
+                "This is a snake game with a hidden easter egg. Try and find it.", 
+                "BMW description"
+            ];
             const cardLinks =
             [
                 "snake.html",
                 "https://www.bmwusa.com/",
                 "index.html"
-            ]
-            const cardNames = 
-            [
-                "Snake Game", 
-                "BMW", 
-                "This Website"
-            ];
-            const cardDescriptions = 
-            [
-                "This is a snake game with a hidden easter egg. Try and find it.", 
-                "BMW description", 
-                "I created this website from scratch using HTML, CSS, and Javascript and hosted it on my own web server to display my portfolio"
             ];
 
             // Adding this prevents project card to home page scroll bug
@@ -197,7 +209,7 @@
             }
 
             // When the user scrolls the page, execute myFunction
-            function myFunction() 
+            function getScrollLevel() 
             {
                 var containerObject = document.querySelector('.container');
                 var winScroll = containerObject.scrollTop || containerObject.scrollTop;

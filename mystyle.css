@@ -34,18 +34,12 @@ body
 {
     width: 100vw;
     height: 100vh;
-    padding: 25px;
     display: flex;
     scroll-snap-align: start;
 }
 
 /* Animate all big text */
-.typewriterItem
-{
-    margin: 0 auto;
-    overflow: hidden;
-    white-space: nowrap;
-}
+
 
 .typewriterItem1
 {
@@ -54,24 +48,11 @@ body
     white-space: nowrap;
 }
 
-.typewriterItem2
-{
-    margin: 0 auto;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.aboutStuff
-{
-    padding-top: 270px;
-    padding-left: 50px;
-    padding-right: 550px;
-}
-
 .aboutContentHolder
 {   
-    padding: 15px 15px 15px 15px;
+    width: 70%;
     border-radius: 15px;
+    padding: 15px 15px 15px 15px;
     background-color: blanchedalmond;
 }
 
@@ -88,8 +69,8 @@ body
 
 @keyframes moveFromRight 
 {
-    from {padding-right: 1500px}
-    to {padding-right: 350px}
+    from {padding-left: 1500px}
+    to {padding-left: 0px}
 }
 
 /* For top navigation bar */
@@ -122,16 +103,14 @@ body
 /* For project cards */
 .cardHolder
 {
-    padding-top: 150px;
     width: 100%;
 }
 
 .cardStuff
 {
     display: flex;
-    width: 100%;
     flex-direction: row;
-    padding-left: 75px;
+    /* padding-left: 75px; */
     text-align: center;
     border-radius: 20px;
     background-color: blanchedalmond;
@@ -169,16 +148,6 @@ body
     text-align: center;
     max-height: 100%;
     max-width: 100%;
-    /*transform: translateY(100px);*/
-    opacity: 1;
-    transition: .25s;
-}
-
-.container .card:hover .content
-{
-    top: auto;
-    transform: translateY(0px);
-    opacity: 1;
 }
 
 .container .card .content h2
@@ -225,11 +194,6 @@ body
 }
 
 /* For project card arrow buttons */
-#buttondiv1
-{
-    padding-top: 200px;
-}
-
 #buttondiv1button
 {
     outline: none;
@@ -245,11 +209,6 @@ body
 {
     top: 3px;
     box-shadow: none;
-}
-
-#buttondiv2
-{
-    padding-top: 200px;
 }
 
 #buttondiv2button
@@ -378,7 +337,6 @@ input
     outline: none;
     color: black;
 }
-
 
 .navbar button 
 {
@@ -535,7 +493,7 @@ input:-webkit-autofill:focus
     top: 3px;
 }
 
-/* Any button with fill class */
+/* Fill class for resume button */
 .fill 
 {
     outline: 0;
@@ -568,4 +526,16 @@ input:-webkit-autofill:focus
     left: 0px;
 }
 
-/* Social icons */
+/* Side by side divs using float method */
+.flexContainer 
+{
+    width: 100%;
+    padding: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.flexChild 
+{
+    flex: 1;
+}  
