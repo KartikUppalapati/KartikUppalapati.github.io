@@ -59,6 +59,7 @@
                                 <p>Purdue Class of 2022</p>
                                 <p>Math and Computer Science</p>
                                 <p>Software/Cloud Engineer</p>
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -130,9 +131,15 @@
             ];
             const cardLinks =
             [
+                "index.html",
                 "snake.html",
-                "https://www.bmwusa.com/",
-                "index.html"
+                "https://www.bmwusa.com/"
+            ];
+            const cardLinksTitles =
+            [
+                "Click to Refresh",
+                "Click to Play",
+                "Click to Visit"
             ];
 
             // Adding this prevents project card to home page scroll bug
@@ -156,6 +163,7 @@
                     cardElementNum.innerHTML = cardNum + 1;
                     cardElementName.innerHTML = cardNames[cardNum];
                     cardElementDescription.innerHTML = cardDescriptions[cardNum];
+                    cardElementHref.innerHTML = cardLinksTitles[cardNum];
                     cardElementHref.setAttribute("href", cardLinks[cardNum]);
 
                     // Adjust global card num
@@ -179,6 +187,7 @@
                     cardElementNum.innerHTML = cardNum - 1;
                     cardElementName.innerHTML = cardNames[cardNum - 2];
                     cardElementDescription.innerHTML = cardDescriptions[cardNum - 2];
+                    cardElementHref.innerHTML = cardLinksTitles[cardNum - 2];
                     cardElementHref.setAttribute("href", cardLinks[cardNum - 2]);
 
                     // Adjust global card num
