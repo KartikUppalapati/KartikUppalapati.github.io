@@ -12,12 +12,9 @@
             <a id="contact" href="#open-modal">Contact</a>
             <div id="open-modal" class="modal-window">
                 <div style="text-align: center;">
-                  <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
-                  <h1 style="font-size: 40px;">Contact Me</h1>
-                  <p style="padding-bottom: 15px;">kartik0109@gmail.com</p>
-                  <p style="padding-bottom: 15px;">https://www.linkedin.com/in/kartik-uppalapati-9a6292187/</p>
-                  <p style="padding-bottom: 15px;">https://github.com/KartikUppalapati?tab=repositories</p>
-                  <!--
+                    <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
+                    <h1 style="font-size: 40px;">Contact Me</h1>
+                    <p style="padding-bottom: 15px;">Directly at kartik0109@gmail.com or by using this form</p>
                     <div class="contactMe">
                         <form onsubmit="sendEmail();">
                             <input name="customerName" placeholder="Name *" required="" type="text">
@@ -26,18 +23,15 @@
                             <button class="submit">Send</button>
                         </form>
                     </div>
-                -->
                 </div>
             </div>
         </div>
 
-        <!--
-            <div class="progressHeader">
-                <div class="progressContainer">
-                <div class="progressBar" id="myBar"></div>
-                </div> 
-            </div>
-        -->
+        <div class="progressHeader">
+            <div class="progressContainer">
+            <div class="progressBar" id="myBar"></div>
+            </div> 
+        </div>
 
         <div class="container" onscroll="getScrollLevel()">
             <section id="home">
@@ -83,20 +77,28 @@
                         </div>
                     </div>
                     <div class="flexChild typewriter2" style="overflow: hidden;">
-                        <div class="cardHolder typewriterItem2" style=" width: 65%; margin-left: 35%;">
+                        <div class="cardHolder typewriterItem2" style=" width: 70%; margin-left: 30%;">
                             <div id="cardstuff" class="cardStuff" style="align-items: center;">
-                                <div id="buttondiv1" style="width: 15%;">
+                                <div id="buttondiv1" style="width: 15%; padding-left: 15px;">
                                     <button id="buttondiv1button" onclick="prevCard()">&larr;</button>
                                 </div>
                                 <div class="card" style="width: 70%;">
-                                    <div class="content">
-                                        <h2 id="cardContentNum">1</h2>
-                                        <h3 id="cardContentName">This Website</h3>
-                                        <p id="cardContentDescription"><span>I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects.</span></p>
-                                        <a id="cardContentHref" href="index.html">Click To Refresh</a>
+                                    <div class="content" style="height: 90%; padding: 15px;">
+                                        <div style="height: 30%;">
+                                            <h3 id="cardContentName">This Personal Website</h3>
+                                        </div>
+                                        <div style="height: 45%;">
+                                            <p id="cardContentDescription"><span>I created this website from scratch using HTML, CSS, and Javascript 
+                                                and hosted it on Github Pages to display my projects.
+                                                The source code for this project as well as all my other projects
+                                                can be found here: https://github.com/KartikUppalapati?tab=repositories</span></p>
+                                        </div>
+                                        <div style="height: 25%;">
+                                            <a id="cardContentHref" href="index.html">Click To Refresh</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div id="buttondiv2" style="width: 15%;">
+                                <div id="buttondiv2" style="width: 15%; padding-right: 15px;">
                                     <button id="buttondiv2button" onclick="nextCard()">&rarr;</button>
                                 </div>
                             </div>
@@ -119,27 +121,23 @@
             var cardNum = 1;
             const cardNames = 
             [
-                "This Website",
-                "Snake Game", 
-                "BMW"
+                "Kartik's Website",
+                "Music Downloader", 
             ];
             const cardDescriptions = 
             [
-                "I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects",
-                "This is a snake game with a hidden easter egg. Try and find it.", 
-                "BMW description"
+                "I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects. The source code for this project as well as all my other projects can be found here: https://github.com/KartikUppalapati?tab=repositories",
+                "This is a java application I created to download songs off of YouTube, scan them to find its metadata and save it as an mp3. The application uses various open source and publicly available software like YouTube-DL, mp3agic, and the Spotify API.", 
             ];
             const cardLinks =
             [
                 "index.html",
-                "snake.html",
-                "https://www.bmwusa.com/"
+                "idk",
             ];
             const cardLinksTitles =
             [
                 "Click to Refresh",
-                "Click to Play",
-                "Click to Visit"
+                "Click to Download",
             ];
 
             // Adding this prevents project card to home page scroll bug
@@ -154,13 +152,11 @@
                 if (cardNum < cardNames.length)
                 {
                     // Get elements
-                    var cardElementNum = document.getElementById("cardContentNum");
                     var cardElementName = document.getElementById("cardContentName");
                     var cardElementDescription = document.getElementById("cardContentDescription");
                     var cardElementHref = document.getElementById("cardContentHref");
 
                     // Change elements
-                    cardElementNum.innerHTML = cardNum + 1;
                     cardElementName.innerHTML = cardNames[cardNum];
                     cardElementDescription.innerHTML = cardDescriptions[cardNum];
                     cardElementHref.innerHTML = cardLinksTitles[cardNum];
@@ -178,13 +174,11 @@
                 if (cardNum - 1 > 0)
                 {
                     // Get elements
-                    var cardElementNum = document.getElementById("cardContentNum");
                     var cardElementName = document.getElementById("cardContentName");
                     var cardElementDescription = document.getElementById("cardContentDescription");
                     var cardElementHref = document.getElementById("cardContentHref");
 
                     // Change elements
-                    cardElementNum.innerHTML = cardNum - 1;
                     cardElementName.innerHTML = cardNames[cardNum - 2];
                     cardElementDescription.innerHTML = cardDescriptions[cardNum - 2];
                     cardElementHref.innerHTML = cardLinksTitles[cardNum - 2];
@@ -210,11 +204,12 @@
                 });
             });
 
-            observer1.observe(document.querySelector('.typewriter2'));
+            //observer1.observe(document.querySelector('.typewriter2'));
 
             function sendEmail()
             {
                 //alert("Email Successfully Sent!");
+                window.location.href = "#modal-close";
             }
 
             // When the user scrolls the page, execute myFunction
