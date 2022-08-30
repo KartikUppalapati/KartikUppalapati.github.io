@@ -94,7 +94,8 @@
                                                 can be found on my <a href="https://github.com/KartikUppalapati?tab=repositories">github</a></span></p>
                                         </div>
                                         <div style="height: 25%;">
-                                            <a id="cardContentHref" href="index.html">Click To Refresh</a>
+                                            <a id="cardContentHref" href="index.html" onclick="openLink()">
+                                                Click To Refresh</a>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +119,7 @@
 
         <script>
             // Initialize variables
-            var cardNum = 1;
+            var cardNum = 0;
             const cardNames = 
             [
                 "My Personal Website",
@@ -132,7 +133,7 @@
             const cardLinks =
             [
                 "index.html",
-                "myytld.html",
+                "",
             ];
             const cardLinksTitles =
             [
@@ -140,17 +141,14 @@
                 "Click to View",
             ];
 
-            // Adding this prevents project card to home page scroll bug
-            function animate() 
-            {
-                var myNameElement = document.getElementById("myname");
-            }
-
             // Go to next card if not at end
             function nextCard()
             {
-                if (cardNum < cardNames.length)
+                if (cardNum < cardNames.length - 1)
                 {
+                    // Adjust global card num
+                    cardNum = cardNum + 1;
+
                     // Get elements
                     var cardElementName = document.getElementById("cardContentName");
                     var cardElementDescription = document.getElementById("cardContentDescription");
@@ -161,10 +159,6 @@
                     cardElementDescription.innerHTML = cardDescriptions[cardNum];
                     cardElementHref.innerHTML = cardLinksTitles[cardNum];
                     cardElementHref.setAttribute("href", cardLinks[cardNum]);
-                    cardElementHref.setAttribute("download", cardLinks[cardNum]);
-
-                    // Adjust global card num
-                    cardNum = cardNum + 1
                 }
             }
 
@@ -172,21 +166,35 @@
             function prevCard()
             {
                 // If not out of bounds
-                if (cardNum - 1 > 0)
+                if (cardNum - 1 >= 0)
                 {
+                    // Adjust global card num
+                    cardNum = cardNum - 1;
+
                     // Get elements
                     var cardElementName = document.getElementById("cardContentName");
                     var cardElementDescription = document.getElementById("cardContentDescription");
                     var cardElementHref = document.getElementById("cardContentHref");
 
                     // Change elements
-                    cardElementName.innerHTML = cardNames[cardNum - 2];
-                    cardElementDescription.innerHTML = cardDescriptions[cardNum - 2];
-                    cardElementHref.innerHTML = cardLinksTitles[cardNum - 2];
-                    cardElementHref.setAttribute("href", cardLinks[cardNum - 2]);
+                    cardElementName.innerHTML = cardNames[cardNum];
+                    cardElementDescription.innerHTML = cardDescriptions[cardNum];
+                    cardElementHref.innerHTML = cardLinksTitles[cardNum];
+                    cardElementHref.setAttribute("href", cardLinks[cardNum]);
+                }
+            }
 
-                    // Adjust global card num
-                    cardNum = cardNum - 1
+            // Adding this prevents project card to home page scroll bug
+            function animate() 
+            {
+                var myNameElement = document.getElementById("myname");
+            }
+
+            function openLink()
+            {
+                if (cardNum == 1)
+                {
+                    window.open('myytld.html', '_blank');
                 }
             }
 
