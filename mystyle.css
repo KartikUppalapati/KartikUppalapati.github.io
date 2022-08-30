@@ -152,13 +152,13 @@ body
     font-weight: 300;
 }
 
-.container .card .content a:hover
+#cardContentHref:hover
 {
     color: white;
     background-color: black;
 }
 
-.container .card .content a
+#cardContentHref
 {
     position: relative;
     display: inline-block;

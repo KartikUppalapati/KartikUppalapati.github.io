@@ -85,13 +85,13 @@
                                 <div class="card" style="width: 70%;">
                                     <div class="content" style="height: 90%; padding: 15px;">
                                         <div style="height: 30%;">
-                                            <h3 id="cardContentName">This Personal Website</h3>
+                                            <h3 id="cardContentName">My Personal Website</h3>
                                         </div>
                                         <div style="height: 45%;">
                                             <p id="cardContentDescription"><span>I created this website from scratch using HTML, CSS, and Javascript 
                                                 and hosted it on Github Pages to display my projects.
                                                 The source code for this project as well as all my other projects
-                                                can be found here: https://github.com/KartikUppalapati?tab=repositories</span></p>
+                                                can be found on my <a href="https://github.com/KartikUppalapati?tab=repositories">github</a></span></p>
                                         </div>
                                         <div style="height: 25%;">
                                             <a id="cardContentHref" href="index.html">Click To Refresh</a>
@@ -121,23 +121,23 @@
             var cardNum = 1;
             const cardNames = 
             [
-                "Kartik's Website",
+                "My Personal Website",
                 "Music Downloader", 
             ];
             const cardDescriptions = 
             [
-                "I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects. The source code for this project as well as all my other projects can be found here: https://github.com/KartikUppalapati?tab=repositories",
+                "I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects. The source code for this project as well as all my other projects can be found on my <a href='https://github.com/KartikUppalapati?tab=repositories'>github</a>",
                 "This is a java application I created to download songs off of YouTube, scan them to find its metadata and save it as an mp3. The application uses various open source and publicly available software like YouTube-DL, mp3agic, and the Spotify API.", 
             ];
             const cardLinks =
             [
                 "index.html",
-                "idk",
+                "myytld.html",
             ];
             const cardLinksTitles =
             [
                 "Click to Refresh",
-                "Click to Download",
+                "Click to View",
             ];
 
             // Adding this prevents project card to home page scroll bug
@@ -161,6 +161,7 @@
                     cardElementDescription.innerHTML = cardDescriptions[cardNum];
                     cardElementHref.innerHTML = cardLinksTitles[cardNum];
                     cardElementHref.setAttribute("href", cardLinks[cardNum]);
+                    cardElementHref.setAttribute("download", cardLinks[cardNum]);
 
                     // Adjust global card num
                     cardNum = cardNum + 1

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>YouTube-DL Music Plus</title>
+        <link rel="stylesheet" href="myytldstyle.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#home" onclick="animate()" id="homehref">Home</a>
+            <a href="#about">About</a>
+            <a id="contact" href="#open-modal">Contact</a>
+            <div id="open-modal" class="modal-window">
+                <div style="text-align: center;">
+                    <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
+                    <h1 style="font-size: 40px;">Contact Me</h1>
+                    <p style="padding-bottom: 15px;">Directly at kartik0109@gmail.com or by using this form</p>
+                    <div class="contactMe">
+                        <form onsubmit="sendEmail();">
+                            <input name="customerName" placeholder="Name *" required="" type="text">
+                            <input name="customerEmail" required="" placeholder="Email *" type="email">
+                            <input name="customerDescription" placeholder="Description" type="text">
+                            <button class="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progressHeader">
+            <div class="progressContainer">
+            <div class="progressBar" id="myBar"></div>
+            </div> 
+        </div>
+        
+        <div class="container" onscroll="getScrollLevel()">
+            <section id="Home">
+                <div class="flexContainer">
+                    <div class="flexChild">
+                        <div>
+                            <h1 style="font-size: 100px; color: blanchedalmond;">Music Downloader</h1>
+                            <div>
+                                <a href="MyYoutubeDL-2.5.5.jar" download
+                                class="resumeButton fill" style="color: black; text-decoration: none;">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexChild" style="text-align: right;">
+                        <h1 style="font-size: 100px; color: blanchedalmond;">Pic Here</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section id="About">
+                <div class="flexContainer">
+                    <div class="flexChild">
+                        <div class="aboutContentHolder">
+                            <div class="aboutContent">
+                                <h1>Still Coming</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexChild">
+                        <div>
+                            <h1 style="font-size: 100px; color: blanchedalmond; text-align: right;">About the Project</h1>
+                        </div>
+                       
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            function sendEmail()
+            {
+                //alert("Email Successfully Sent!");
+                window.location.href = "#modal-close";
+            }
+
+            // When the user scrolls the page, execute myFunction
+            function getScrollLevel() 
+            {
+                var containerObject = document.querySelector('.container');
+                var winScroll = containerObject.scrollTop || containerObject.scrollTop;
+                var height = containerObject.scrollHeight - containerObject.clientHeight;
+                var scrolled = (winScroll / height) * 100;
+                document.getElementById("myBar").style.width = scrolled + "%";
+            }
+        </script>
+    </body>
+</html>

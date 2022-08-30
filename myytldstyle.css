@@ -1,0 +1,282 @@
+body 
+{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    background-color: grey;
+}
+
+.container
+{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+.container::-webkit-scrollbar 
+{ 
+    display: none;  /* Safari and Chrome */
+}
+
+.container section
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    scroll-snap-align: start;
+}
+
+/* For top navigation bar */
+.navbar 
+{
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: #333;
+}
+
+.navbar a 
+{
+    float: right;
+    color: #f2f2f2;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.navbar a:hover 
+{
+    background: #ddd;
+    color: black;
+}
+
+/* For contact info */
+.modal-window 
+{
+    position: fixed;
+    background-color: rgba(200, 200, 200, 0.75);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.modal-window:target 
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window > div 
+{
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 2rem;
+    background: #fff;
+    color: #444;
+}
+
+.modal-window header 
+{
+    font-weight: bold;
+}
+
+.modal-close 
+{
+    top: 0;
+    right: 0;
+    width: 10px;
+    font-size: 80%;
+    line-height: 5px;
+    position: absolute;
+    text-align: center;
+}
+
+.modal-window h1 
+{
+    font-size: 150%;
+    margin: 0 0 15px;
+}
+
+/* Contact form stuff */
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+
+.contactMe
+{
+    background: #f8f4e5;
+    padding: 50px 100px;
+    padding-left: 25px;
+    border: 2px solid black;
+}
+
+input 
+{
+    display: block;
+    width: 100%;
+    font-size: 14pt;
+    line-height: 28pt;
+    margin-bottom: 28pt;
+    border: none;
+    border-bottom: 5px solid black;
+    background: #f8f4e5;
+    min-width: 350px;
+    padding-left: 5px;
+    outline: none;
+    color: black;
+}
+
+.navbar button 
+{
+    margin: 0;
+    outline: none;
+    margin-top: 15px;
+    margin-bottom: -10px;
+    padding: 0 158px;
+    line-height: 28pt;
+    letter-spacing: 2px;
+    background: #ffa580;
+    border: 1px solid black;
+    transition: 0.1s all ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar button:active 
+{
+    top: 3px;
+    box-shadow: none;
+}
+
+.navbar button:hover 
+{
+    cursor:pointer;
+    color: white;
+    background: black;
+    border: 1px solid black;
+}
+
+input:-webkit-autofill:focus 
+{
+    border-bottom: 5px solid #95a4ff;
+    -webkit-text-fill-color: #2A293E;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Scroll progress bar stuff */
+.progressHeader 
+{
+    position: fixed;
+    top: 47px;
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.progressContainer 
+{
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+}
+
+.progressBar 
+{
+    height: 8px;
+    background: blanchedalmond;
+    width: 0%;
+}
+
+/* Resume button */
+.resumeButton
+{
+    float: left;
+    cursor:pointer;
+    transition: .25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.resumeButton:active 
+{
+    top: 3px;
+}
+
+/* Fill class for resume button */
+.fill 
+{
+    outline: 0;
+    font-size: 20px;
+    font-weight: 200;
+    cursor: pointer;
+    position: relative;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.fill::after 
+{
+    content: "";
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+    position: absolute;
+    background-color: blanchedalmond;
+}
+
+.fill:hover::after 
+{
+    top: 0px;
+    left: 0px;
+}
+
+/* For about content */
+.aboutContentHolder
+{   
+    width: 70%;
+    border-radius: 15px;
+    padding: 15px 15px 15px 15px;
+    background-color: blanchedalmond;
+}
+
+.aboutContent
+{
+    padding: 15px 15px 15px 15px;
+    border: 1.5px solid black;
+}
+
+/* Side by side divs using float method */
+.flexContainer 
+{
+    width: 100%;
+    padding: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.flexChild 
+{
+    flex: 1;
+}
