@@ -16,10 +16,10 @@
                     <h1 style="font-size: 40px;">Contact Me</h1>
                     <p style="padding-bottom: 15px;">Directly at kartik0109@gmail.com or by using this form</p>
                     <div class="contactMe">
-                        <form onsubmit="sendEmail();">
-                            <input name="customerName" placeholder="Name *" required="" type="text">
-                            <input name="customerEmail" required="" placeholder="Email *" type="email">
-                            <input name="customerDescription" placeholder="Description" type="text">
+                        <form method="POST" action="https://formspree.io/f/mnqrjdqz" onsubmit="sendEmail()">
+                            <input name="name" placeholder="Name" required="" type="text">
+                            <input name="email" required="" placeholder="Email" type="email">
+                            <input name="message" placeholder="Description" type="text">
                             <button class="submit">Send</button>
                         </form>
                     </div>
@@ -222,7 +222,6 @@
 
             function sendEmail()
             {
-                //alert("Email Successfully Sent!");
                 window.location.href = "#modal-close";
             }
 
