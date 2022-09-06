@@ -66,7 +66,7 @@
                             <h1 style="font-size: 100px; color: blanchedalmond; text-align: right;">About Me</h1>
                         </div>
                         <div>
-                            <a href="Kartik U Resume.pdf" download target="_blank" 
+                            <a onclick="openResume()" 
                             class="resumeButton fill" style="color: black; text-decoration: none;">My Resume</a>
                         </div>
                     </div>
@@ -201,6 +201,11 @@
                 {
                     window.open('myytld.html', '_blank');
                 }
+            }
+
+            function openResume()
+            {
+                window.open('Kartik U Resume.pdf', '_blank');
             }
 
             // Observer to add and remove animation when entering and leaving viewport
