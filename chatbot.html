@@ -53,6 +53,17 @@
                     <div class="aboutContent">
                         <h1>This is Sheldon Cooper</h1>
                         <br>
+                        <p>
+                          Artificial intelligence (AI) chatbots are a fascinating advancement in today's digital technology landscape.
+                          I created this AI chatbot not only to teach myself more about AI and ML technologies, but also to showcase
+                          how powerful these technologies can be. Chatbots are a somewhat simple form of this technology in that they use a 
+                          learning algorithmto understand the intent of user as well as other traits such as tone and sentiment. The application 
+                          Wit.ai handledthe complex part of creating the learning algorithm, but the algorithm still needs a tremendous amount of data,
+                          input on whether it's predictions are accurate, and to be taught how to respond to certain intentions. I've trained and taught 
+                          this chatbot to "think" like the character Sheldon Cooper from the show Big Bang Theory. On the show, Sheldon Cooper thinks very 
+                          robotically and systematically so if a chatbot could ever truly be completely artificially intelligent, it would think very much
+                          like Sheldon Cooper.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -77,7 +88,7 @@
       }
 
       // Make bot say first message
-      window.onload = addBotEntry("Hello. my name is Sheldon. Shall we enage in some conversational banter? ");
+      window.onload = addBotEntry("Hello. my name is Sheldon. Let's enage in some conversational banter. I'll begin, hello there.");
 
       // Let user press enter
       const inputField = document.getElementById("chatInput");
@@ -95,7 +106,9 @@
       [
         "Hello there",
         "Hi",
-        "Good day fellow human or robot",
+        "Greetings",
+        "Good day fellow human or bot",
+        "S'up"
       ];
 
       const unknownList = 
@@ -108,7 +121,6 @@
       // Get output from user input
       async function output(input) 
       {
-        let product;
         addUserEntry(input);
         let text = input.toLowerCase().replace(/[^\w\s\d]/gi, "");
         text = text.
