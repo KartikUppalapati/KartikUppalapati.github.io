@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+      <title>Sheldon the Chatbot</title>
+      <link rel="stylesheet" href="chatbot.css">
+  </head>
+  
+  <body>
+    <div class="navbar">
+      <a href="#home" onclick="animate()" id="homehref">Home</a>
+      <a href="#about">About</a>
+      <a id="contact" href="#open-modal">Contact</a>
+      <div id="open-modal" class="modal-window">
+          <div style="text-align: center;">
+              <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
+              <h1 style="font-size: 40px;">Contact Me</h1>
+              <p style="padding-bottom: 15px;">How can I improve this chatbot?</p>
+              <div class="contactMe">
+                  <form method="POST" action="https://formspree.io/f/mnqrjdqz" onsubmit="sendEmail()">
+                      <input name="name" placeholder="Name" required="" type="text">
+                      <input name="email" required="" placeholder="Email" type="email">
+                      <input name="message" placeholder="Description" type="text">
+                      <button class="submit">Send</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="progressHeader">
+      <div class="progressContainer">
+      <div class="progressBar" id="myBar"></div>
+      </div> 
+    </div>
+    
+    <div class="container" onscroll="getScrollLevel()">
+      <section id="home">
+        <div style="margin: auto;">
+            <div style="text-align: center;">
+              <div id="chatContainer" class="chatContainer">
+                <div id="chat" class="chat">
+                  <div id="messages" class="messages"></div>
+                  <input id="chatInput" type="text" placeholder="Type message" autocomplete="off" autofocus="true"/>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="flexContainer">
+            <div class="flexChild">
+                <div class="aboutContentHolder">
+                    <div class="aboutContent">
+                        <h1>This is Sheldon Cooper</h1>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="flexChild">
+                <div>
+                    <h1 style="font-size: 100px; color: blanchedalmond; text-align: right;">About the Project</h1>
+                </div>
+            </div>
+        </div>
+      </section>
+    </div>
+    
+    <script>
+      // When the user scrolls the page, execute myFunction
+      function getScrollLevel() 
+      {
+          var containerObject = document.querySelector('.container');
+          var winScroll = containerObject.scrollTop || containerObject.scrollTop;
+          var height = containerObject.scrollHeight - containerObject.clientHeight;
+          var scrolled = (winScroll / height) * 100;
+          document.getElementById("myBar").style.width = scrolled + "%";
+      }
+
+      // Make bot say first message
+      window.onload = addFirstEntry("Hello. my name is Sheldon. Shall we enage in some conversational banter? ");
+
+      // Let user press enter
+      const inputField = document.getElementById("chatInput");
+      inputField.addEventListener("keydown", e => 
+      {
+        if (e.code === "Enter") {
+          let input = inputField.value;
+          inputField.value = "";
+          output(input);
+        }
+      });
+
+      // Initialize greeting responses
+      const greetingsList = 
+      [
+        "Hello there",
+        "Hi",
+        "Good day fellow human or robot",
+      ];
+
+      const unknownList = 
+      [
+        "Sorry, I didn't understand that. I'll research it and hope you don't say it again.",
+        "Sorry, I don't know what that means. I'll pretend I do and change the topic. Do you like Star Trek?",
+        "Nope, that was too advanced for me. I'll skip it.",
+      ];
+
+      // Get output from user input
+      async function output(input) 
+      {
+        let product;
+        let text = input.toLowerCase().replace(/[^\w\s\d]/gi, "");
+        text = text.
+        replace(/ a /g, " ").
+        replace(/whats/g, "what is").
+        replace(/please /g, "").
+        replace(/ please/g, "").
+        replace(/r u/g, "are you");
+
+        // Make request to chatbot server
+        let fetchString = text.replaceAll(' ', '%20');
+        let returnData;
+        let fetchReturn = fetch('https://api.wit.ai/message?v=20220908&q=' + fetchString, {
+            headers: {
+                'Authorization': 'Bearer UXKRFB2CWGSLNYMALKY4QBX5VU23RLFE'
+                
+            }
+        }).then((response) => { 
+          response.json().then((data) => 
+          {
+            // Get intent
+            let intent = data.intents[0].name;
+
+            // Based on intent return response
+            if (intent === "greeting")
+            {
+              // Add input and response to box
+              addChatEntry(input, greetingsList[Math.floor(Math.random() * greetingsList.length)]);
+            }
+            else
+            {
+              // Add input and response to box
+              addChatEntry(input, "Input is: " + intent);
+            }
+          })
+          .catch((err) => 
+          {
+            // Else intent not found so return unknown
+            addChatEntry(input, unknownList[Math.floor(Math.random() * unknownList.length)]);
+          }) 
+        });
+      }
+
+      function addChatEntry(input, product) 
+      {
+        const messagesContainer = document.getElementById("messages");
+        let userDiv = document.createElement("div");
+        userDiv.id = "user";
+        userDiv.style = "font-size: 17px; border: 0; padding: 15px; border-radius: 15px; background-color: lightblue; max-width: 50%";
+        userDiv.className = "user response";
+        userDiv.innerHTML = input;
+        messagesContainer.appendChild(userDiv);
+
+        let botDiv = document.createElement("div");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.style = "font-size: 17px; border: 0; padding: 15px; border-radius: 15px; background-color: lightgrey; max-width: 50%";
+        botDiv.className = "bot response";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop =
+        messagesContainer.scrollHeight - messagesContainer.clientHeight;
+
+        setTimeout(() => 
+        {
+          botText.innerText = `${product}`;
+        }, 2000);
+      }
+
+      function addFirstEntry(firstEntry) 
+      {
+        const messagesContainer = document.getElementById("messages");
+        let botDiv = document.createElement("div");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.style = "font-size: 17px; border: 0; padding: 15px; border-radius: 15px; background-color: lightgrey; max-width: 50%";
+        botDiv.className = "bot response";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop =
+        messagesContainer.scrollHeight - messagesContainer.clientHeight;
+
+        setTimeout(() => 
+        {
+          botText.innerText = `${firstEntry}`;
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

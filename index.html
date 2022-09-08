@@ -27,13 +27,7 @@
             </div>
         </div>
 
-        <div class="progressHeader">
-            <div class="progressContainer">
-            <div class="progressBar" id="myBar"></div>
-            </div> 
-        </div>
-
-        <div class="container" onscroll="getScrollLevel()">
+        <div class="container">
             <section id="home">
                 <div style="margin: auto;">
                     <div style="text-align: center;">
@@ -112,14 +106,6 @@
                     </div>
                 </div>
             </section>
-
-            <!--
-                <div class="veryBottom" id="bottom">
-                    <p style="text-align: center;">Statistics are publicly available at <a id="statsref" href="/stats">/stats</a></p>
-                    <p style="text-align: center;">Created 5/11/2022 12:13 AM</p>
-                    <p style="text-align: center;">Hosted in a C server</p>
-                </div>
-            -->
         </div>
 
         <script>
@@ -128,22 +114,26 @@
             const cardNames = 
             [
                 "My Personal Website",
-                "Music Downloader", 
+                "Music Downloader",
+                "Sheldon The Chatbot",
             ];
             const cardDescriptions = 
             [
                 "I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects. The source code for this project as well as all my other projects can be found on my <a href='https://github.com/KartikUppalapati?tab=repositories'>GitHub</a>",
-                "This is a java application I created to download songs off of YouTube, scan them to find its metadata and save it as an mp3. The application uses various open source and publicly available software like YouTube-DL, mp3agic, and the Spotify API.", 
+                "This is a java application I created to download songs off of YouTube, scan them to find its metadata and save it as an mp3. The application uses various open source and publicly available software like YouTube-DL, mp3agic, and the Spotify API.",
+                "This is a chatbot I created and named after Sheldon Cooper. I created and trained this bot using Wit.ai and although it is still in training, it can hold subpar conversations much like the character Sheldon Cooper.",
             ];
             const cardLinks =
             [
                 "index.html",
-                "",
+                "index.html#projects",
+                "index.html#projects",
             ];
             const cardLinksTitles =
             [
                 "Click to Refresh",
                 "Click to View",
+                "Click to Chat"
             ];
 
             // Go to next card if not at end
@@ -201,6 +191,10 @@
                 {
                     window.open('myytld.html', '_blank');
                 }
+                if (cardNum == 2)
+                {
+                    window.open('chatbot.html', '_blank');
+                }
             }
 
             function openResume()
@@ -228,16 +222,6 @@
             function sendEmail()
             {
                 window.location.href = "#modal-close";
-            }
-
-            // When the user scrolls the page, execute myFunction
-            function getScrollLevel() 
-            {
-                var containerObject = document.querySelector('.container');
-                var winScroll = containerObject.scrollTop || containerObject.scrollTop;
-                var height = containerObject.scrollHeight - containerObject.clientHeight;
-                var scrolled = (winScroll / height) * 100;
-                document.getElementById("myBar").style.width = scrolled + "%";
             }
         </script>
     </body>

@@ -1,10 +1,15 @@
+html 
+{
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
 body 
 {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    display: flex;
     height: 100vh;
+    scroll-snap-type: y mandatory;
     background-color: lightblue;
 }
 
@@ -12,21 +17,10 @@ body
 {
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
-    scrollbar-width: none;  /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-}
-
-.container::-webkit-scrollbar 
-{ 
-    display: none;  /* Safari and Chrome */
 }
 
 .container section
 {
-    width: 100vw;
     height: 100vh;
     display: flex;
     scroll-snap-align: start;
@@ -356,12 +350,12 @@ input:-webkit-autofill:focus
 
 .mouseDownDiv span 
 {
-    width: 20px;
-    height: 40px;
+    width: 15px;
+    height: 30px;
     position: absolute;
     border-radius: 50px;
     box-sizing: border-box;
-    border: 2px solid #fff;
+    border: 2px solid blanchedalmond;
 }
 
 .mouseDownDiv span::before 
@@ -374,7 +368,7 @@ input:-webkit-autofill:focus
     margin-left: -3px;
     position: absolute;
     border-radius: 100%;
-    background-color: #fff;
+    background-color: blanchedalmond;
     -webkit-animation: scrollAnimation 2s infinite .5s;
     animation: scrollAnimation 2s infinite .5s;
     box-sizing: border-box;
@@ -393,7 +387,7 @@ input:-webkit-autofill:focus
     }
     80% 
     {
-        -webkit-transform: translate(0, 20px);
+        -webkit-transform: translate(0, 13px);
         opacity: 0;
     }
     100% 
@@ -415,7 +409,7 @@ input:-webkit-autofill:focus
     }
     80% 
     {
-        transform: translate(0, 20px);
+        transform: translate(0, 13px);
         opacity: 0;
     }
     100% 
