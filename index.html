@@ -74,8 +74,8 @@
                             <h1 style="font-size: 100px; color: blanchedalmond;">My Projects</h1>
                         </div>
                     </div>
-                    <div class="flexChild typewriter2" style="overflow: hidden;">
-                        <div class="cardHolder typewriterItem2" style=" width: 70%; margin-left: 30%;">
+                    <div class="flexChild" style="overflow: hidden;">
+                        <div class="cardHolder" style=" width: 70%; margin-left: 30%;">
                             <div id="cardstuff" class="cardStuff" style="align-items: center;">
                                 <div id="buttondiv1" style="width: 15%; padding-left: 15px;">
                                     <button id="buttondiv1button" onclick="prevCard()">&larr;</button>
@@ -186,6 +186,7 @@
                 var myNameElement = document.getElementById("myname");
             }
 
+            // Open link based on project card num
             function openLink()
             {
                 if (cardNum == 1)
@@ -198,28 +199,13 @@
                 }
             }
 
+            // Open resume function for button
             function openResume()
             {
                 window.open('Kartik U Resume.pdf', '_blank');
             }
 
-            // Observer to add and remove animation when entering and leaving viewport
-            const observer1 = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    const myName = entry.target.querySelector('.typewriterItem2');
-
-                    if (entry.isIntersecting) {
-                        myName.classList.add('itemAnimationRight');
-                        return;
-                    }
-
-                    // Not in viewport
-                    myName.classList.remove('itemAnimationRight');
-                });
-            });
-
-            //observer1.observe(document.querySelector('.typewriter2'));
-
+            // After email sent close modal
             function sendEmail()
             {
                 window.location.href = "#modal-close";
