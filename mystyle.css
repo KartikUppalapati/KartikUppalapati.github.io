@@ -37,6 +37,7 @@ body
 .aboutContentHolder
 {   
     width: 70%;
+    min-width: 300px;
     border-radius: 15px;
     padding: 15px 15px 15px 15px;
     background-color: blanchedalmond;
@@ -44,6 +45,8 @@ body
 
 .aboutContent
 {
+    overflow: auto;
+    max-height: 350px;
     padding: 15px 15px 15px 15px;
     border: 1.5px solid black;
 }
@@ -339,107 +342,6 @@ input:-webkit-autofill:focus
     border-bottom: 5px solid #95a4ff;
     -webkit-text-fill-color: #2A293E;
     transition: background-color 5000s ease-in-out 0s;
-}
-
-/* Scroll icons */
-.mouseDownDiv
-{
-    z-index: 1;
-    position: relative;
-}
-
-.mouseDownDiv span 
-{
-    width: 15px;
-    height: 30px;
-    position: absolute;
-    border-radius: 50px;
-    box-sizing: border-box;
-    border: 2px solid blanchedalmond;
-}
-
-.mouseDownDiv span::before 
-{
-    top: 3px;
-    left: 50%;
-    content: '';
-    width: 6px;
-    height: 6px;
-    margin-left: -3px;
-    position: absolute;
-    border-radius: 100%;
-    background-color: blanchedalmond;
-    -webkit-animation: scrollAnimation 2s infinite .5s;
-    animation: scrollAnimation 2s infinite .5s;
-    box-sizing: border-box;
-}
-
-@-webkit-keyframes scrollAnimation 
-{
-    0% 
-    {
-        -webkit-transform: translate(0, 0);
-        opacity: 0;
-    }
-    40% 
-    {
-        opacity: 1;
-    }
-    80% 
-    {
-        -webkit-transform: translate(0, 13px);
-        opacity: 0;
-    }
-    100% 
-    {
-        opacity: 0;
-    }
-}
-
-@keyframes scrollAnimation 
-{
-    0% 
-    {
-        transform: translate(0, 0);
-        opacity: 0;
-    }
-    40% 
-    {
-        opacity: 1;
-    }
-    80% 
-    {
-        transform: translate(0, 13px);
-        opacity: 0;
-    }
-    100% 
-    {
-        opacity: 0;
-    }
-}
-
-/* Scroll progress bar stuff */
-.progressHeader 
-{
-    position: fixed;
-    top: 47px;
-    z-index: 1;
-    width: 100%;
-    background-color: #f1f1f1;
-}
-
-.progressContainer 
-{
-    width: 100%;
-    height: 8px;
-    background: #ccc;
-}
-
-.progressBar 
-{
-    height: 8px;
-    background: blanchedalmond;
-    width: 0%;
 }
 
 /* Resume button */

@@ -35,6 +35,7 @@ body
 .aboutContentHolder
 {   
     width: 70%;
+    min-width: 300px;
     border-radius: 15px;
     padding: 15px 15px 15px 15px;
     background-color: blanchedalmond;
@@ -42,6 +43,8 @@ body
 
 .aboutContent
 {
+    overflow: auto;
+    max-height: 350px;
     padding: 15px 15px 15px 15px;
     border: 1.5px solid black;
 }
