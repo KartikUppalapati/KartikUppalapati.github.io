@@ -148,7 +148,21 @@
             if (intent === "greeting")
             {
               // Add input and response to box
-              addBotEntry(greetingsList[Math.floor(Math.random() * greetingsList.length)]);
+              let reply = greetingsList[Math.floor(Math.random() * greetingsList.length)];
+
+              // If reply contains word day then adjust based on time
+              var today = new Date();
+              if (today.getHours() >= 7 && today.getHours() <= 11)
+              {
+                reply = reply.replace(/day/g, "morning");
+              }
+              else
+              {
+                reply = reply.replace(/day/g, "afternoon");
+              }
+
+              // Rreply with bot
+              addBotEntry(reply);
             }
             else
             {
