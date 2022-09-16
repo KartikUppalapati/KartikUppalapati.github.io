@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-      <title>Sheldon the Chatbot</title>
+      <title>Shelbot</title>
       <link rel="stylesheet" href="chatbot.css">
   </head>
   
@@ -88,7 +88,7 @@
       }
 
       // Make bot say first message
-      window.onload = addBotEntry("Hello. my name is Sheldon. Let's enage in some conversational banter. I'll begin, hello there.");
+      window.onload = addFirstBotEntry();
 
       // Let user press enter
       const inputField = document.getElementById("chatInput");
@@ -111,10 +111,20 @@
         "S'up"
       ];
 
+      // Initialize salutation responses
+      const farwellsList = 
+      [
+        "Good Riddance",
+        "Finally",
+        "Farewell",
+        "Oh thank god\nGoodbye",
+        "Thank you"
+      ];
+
       const unknownList = 
       [
         "Sorry, I didn't understand that. I'll research it and hope you don't say it again.",
-        "Sorry, I don't know what that means. I'll pretend I do and change the topic. Do you like Star Trek?",
+        "Sorry, I don't know what that means. I'll pretend I do and change the topic. What's the weather like?",
         "Nope, that was too advanced for me. I'll skip it.",
       ];
 
@@ -129,6 +139,20 @@
         replace(/please /g, "").
         replace(/ please/g, "").
         replace(/r u/g, "are you");
+
+        // Show bot typing
+        const messagesContainer = document.getElementById("messages");
+        let botDiv = document.createElement("div");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.style = "font-size: 17px; border: 0; padding: 15px; border-radius: 15px; background-color: lightgrey; max-width: 50%";
+        botDiv.className = "bot response";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop =
+        messagesContainer.scrollHeight - messagesContainer.clientHeight;
 
         // Make request to chatbot server
         let fetchString = text.replaceAll(' ', '%20');
@@ -147,7 +171,7 @@
             // Based on intent return response
             if (intent === "greeting")
             {
-              // Add input and response to box
+              // Get reply
               let reply = greetingsList[Math.floor(Math.random() * greetingsList.length)];
 
               // If reply contains word day then adjust based on time
@@ -161,19 +185,27 @@
                 reply = reply.replace(/day/g, "afternoon");
               }
 
-              // Rreply with bot
-              addBotEntry(reply);
+              // Show user bot reply
+              botText.innerText = `${reply}`;
+            }
+            else if (intent === "farewell")
+            {
+              // Get reply
+              let reply = farwellsList[Math.floor(Math.random() * farwellsList.length)];
+
+              // Show user bot reply
+              botText.innerText = `${reply}`;
             }
             else
             {
               // Add input and response to box
-              addBotEntry("Input is: " + intent);
+              botText.innerText = `${"Input is: " + intent}`;
             }
           })
           .catch((err) => 
           {
             // Else intent not found so return unknown
-            addBotEntry(unknownList[Math.floor(Math.random() * unknownList.length)]);
+            botText.innerText = `${unknownList[Math.floor(Math.random() * unknownList.length)]}`;
           }) 
         });
       }
@@ -187,10 +219,14 @@
         userDiv.className = "user response";
         userDiv.innerHTML = input;
         messagesContainer.appendChild(userDiv);
+
+        messagesContainer.scrollTop =
+        messagesContainer.scrollHeight - messagesContainer.clientHeight;
       }
 
-      function addBotEntry(entry) 
+      function addFirstBotEntry() 
       {
+        // Add bot message
         const messagesContainer = document.getElementById("messages");
         let botDiv = document.createElement("div");
         let botText = document.createElement("span");
@@ -201,13 +237,31 @@
         botDiv.appendChild(botText);
         messagesContainer.appendChild(botDiv);
 
+        // Adjust height
         messagesContainer.scrollTop =
         messagesContainer.scrollHeight - messagesContainer.clientHeight;
 
+        // Adjust bot message text to actual text
         setTimeout(() => 
         {
-          botText.innerText = `${entry}`;
+          botText.innerText = `${"Hello. my name is Sheldon. Let's enage in some conversational banter. I'll begin, hello there."}`;
         }, 1000);
+
+        // Add bot note message
+        setTimeout(() => 
+        {
+          botDiv = document.createElement("div");
+          botText = document.createElement("span");
+          botDiv.id = "bot";
+          botDiv.style = "font-size: 17px; border: 0; padding: 15px; border-radius: 15px; background-color: lightgrey; max-width: 50%";
+          botDiv.className = "bot response";
+          botText.innerText = "Note: Shelbot is still in training";
+          botDiv.appendChild(botText);
+          messagesContainer.appendChild(botDiv);
+
+          messagesContainer.scrollTop =
+          messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        }, 1500);
       }
     </script>
   </body>

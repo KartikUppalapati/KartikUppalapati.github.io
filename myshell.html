@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>YouTube-DL Music Plus</title>
-        <link rel="stylesheet" href="myytldstyle.css">
+        <title>Shell Program</title>
+        <link rel="stylesheet" href="myshellStyle.css">
     </head>
     <body>
         <div class="navbar">
@@ -13,7 +13,6 @@
                 <div style="text-align: center;">
                     <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
                     <h1 style="font-size: 40px;">Contact Me</h1>
-                    <p style="padding-bottom: 15px;">How Can I Improve This Application?</p>
                     <div class="contactMe">
                         <form method="POST" action="https://formspree.io/f/mnqrjdqz" onsubmit="sendEmail()">
                             <input name="name" placeholder="Name" required="" type="text">
@@ -37,30 +36,26 @@
                 <div class="flexContainer">
                     <div class="flexChild">
                         <div>
-                            <h1 style="font-size: 100px; color: blanchedalmond;">Music Downloader</h1>
+                            <h1 style="font-size: 100px; color: blanchedalmond;">My Shell</h1>
                             <div>
-                                <a href="MyYoutubeDL-3.0.5.jar" download
-                                class="resumeButton fill" style="color: black; text-decoration: none;">
-                                    <span style="font-size: 25px;">Download</span>
-                                    </br>
-                                    <span style="font-size: 13px;">v. 3.0.5 .jar</span>
-                                </a>
+                                <a onclick="window.open('https://github.com/KartikUppalapati/myShellProject', '_blank');"
+                                class="resumeButton fill" style="color: black; text-decoration: none;">View on GitHub</a>
                             </div>
                         </div>
                     </div>
                     <div class="flexChild" style="text-align: center;">
-                        <div style="margin-left: 25%;">
+                        <div style="margin-left: 10%;">
                             <div>
-                                <img id="imageGallery" src="myytldView.png" alt="Screnshot of application in use" width="450px">
+                                <img id="imageGallery" src="myshellView1.png" alt="Screnshot of application in use" width="650px">
                             </div>
                             </br>
                             <div>
                                 <button id="imageGalleryButton1" class="button mediaGalleryButton" 
-                                onclick="doImageChange('myytldView.png', 1)" style="background-color: blanchedalmond;"></button>
+                                onclick="doImageChange('myshellView1.png', 1)" style="background-color: blanchedalmond;"></button>
                                 <button id="imageGalleryButton2" class="button mediaGalleryButton" 
-                                onclick="doImageChange('myytldView5.png', 2)"></button>
+                                onclick="doImageChange('myshellView2.png', 2)"></button>
                                 <button id="imageGalleryButton3" class="button mediaGalleryButton" 
-                                onclick="doImageChange('myytldView3.png', 3)"></button>
+                                onclick="doImageChange('myshellView3.png', 3)"></button>
                             </div>
                         </div>
                     </div>
@@ -72,15 +67,16 @@
                     <div class="flexChild">
                         <div class="aboutContentHolder">
                             <div class="aboutContent">
-                                <h1>My Music Downloader</h1>
+                                <h1>My Shell Program</h1>
                                 <br>
                                 <p>
-                                    I created this application to help automate the process of downloading music using YouTube.
-                                    Using the open source and publicly available command line program YouTube-DL, which can be found on
-                                    <a href="https://github.com/ytdl-org/youtube-dl">GitHub,</a> I combined this application with the 
-                                    SpotifyAPI to gather important metadata like the Title, Artist, Album, and Album cover and then used 
-                                    Mp3agic to create a new .mp3 file with the proper metadata and album art. I've kept the download file
-                                    as an executeable jar since this application is meant for high level users. 
+                                    This shell program is created using there main principles, a parser, an executer, and a line editor. The line editor is what 
+                                    users type into the program as commands to run. They can use the left and right arrow keys to move the cursor around to insert and delete 
+                                    at various places, or the up and down arrow keys to access the command history. Then users can press enter to send the input to the he parser.
+                                    The parser is created using Yacc (Yet Another Compiler Compier) and Lex (Lexical Analyzer) to break down the user input into rules. The rules 
+                                    are then used to build a command table. The command table what it sounds like, simply a table (vector in C) that holds commands to be executed. 
+                                    The executer then uses regular C code to execute the commands in the command table. It deals with piping, file redirection, builtin commands, and 
+                                    much more. 
                                 </p>
                             </div>
                         </div>

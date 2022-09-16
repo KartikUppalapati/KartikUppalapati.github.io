@@ -223,6 +223,7 @@ input:-webkit-autofill:focus
 .fill 
 {
     outline: 0;
+    font-size: 20px;
     font-weight: 200;
     cursor: pointer;
     position: relative;

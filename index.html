@@ -117,24 +117,28 @@
                 "My Personal Website",
                 "Music Downloader",
                 "Sheldon The Chatbot",
+                "My Shell Program"
             ];
             const cardDescriptions = 
             [
                 "I created this website from scratch using HTML, CSS, and Javascript and hosted it on Github Pages to display my projects. The source code for this project as well as all my other projects can be found on my <a href='https://github.com/KartikUppalapati?tab=repositories'>GitHub</a>",
                 "This is a java application I created to download songs off of YouTube, scan them to find its metadata and save it as an mp3. The application uses various open source and publicly available software like YouTube-DL, mp3agic, and the Spotify API.",
                 "This is a chatbot I created and named after Sheldon Cooper. I created and trained this bot using Wit.ai and although it is still in training, it can hold subpar conversations much like the character Sheldon Cooper.",
+                "This is a shell program that I created for a school project to learn more about how an actual shell program works. It has all the same features as a regular shell including Wildcard substitution, Background processing, Command history, Input and output redirection, Piping, and Shell variable substitution.",
             ];
-            const cardLinks =
+            const cardHrefs =
             [
                 "index.html",
                 "index.html#projects",
                 "index.html#projects",
+                "index.html#projects",
             ];
-            const cardLinksTitles =
+            const cardHrefsTitles =
             [
                 "Click to Refresh",
                 "Click to View",
-                "Click to Chat"
+                "Click to Chat",
+                "Click to View",
             ];
 
             // Go to next card if not at end
@@ -153,8 +157,8 @@
                     // Change elements
                     cardElementName.innerHTML = cardNames[cardNum];
                     cardElementDescription.innerHTML = cardDescriptions[cardNum];
-                    cardElementHref.innerHTML = cardLinksTitles[cardNum];
-                    cardElementHref.setAttribute("href", cardLinks[cardNum]);
+                    cardElementHref.innerHTML = cardHrefsTitles[cardNum];
+                    cardElementHref.setAttribute("href", cardHrefs[cardNum]);
                 }
             }
 
@@ -175,8 +179,8 @@
                     // Change elements
                     cardElementName.innerHTML = cardNames[cardNum];
                     cardElementDescription.innerHTML = cardDescriptions[cardNum];
-                    cardElementHref.innerHTML = cardLinksTitles[cardNum];
-                    cardElementHref.setAttribute("href", cardLinks[cardNum]);
+                    cardElementHref.innerHTML = cardHrefsTitles[cardNum];
+                    cardElementHref.setAttribute("href", cardHrefs[cardNum]);
                 }
             }
 
@@ -189,13 +193,11 @@
             // Open link based on project card num
             function openLink()
             {
-                if (cardNum == 1)
-                {
-                    window.open('myytld.html', '_blank');
-                }
-                if (cardNum == 2)
-                {
-                    window.open('chatbot.html', '_blank');
+                switch(cardNum) {
+                    case 1: window.open('myytld.html', '_blank'); break;
+                    case 2: window.open('chatbot.html', '_blank');break;
+                    case 3: window.open('myshell.html', '_blank');break;
+                    default: break;
                 }
             }
 
