@@ -348,17 +348,17 @@ input:-webkit-autofill:focus
 .resumeButton
 {
     float: right;
-    cursor:pointer;
+    cursor: pointer;
     transition: .25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.resumeButton:active 
+.resumeButton:active
 {
     top: 3px;
 }
 
 /* Fill class for resume button */
-.fill 
+.fill
 {
     outline: 0;
     font-size: 20px;
