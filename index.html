@@ -1,218 +1,452 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
     <head>
-        <title>Kartik's Website</title>
-        <link rel="stylesheet" href="mystyle.css">
+        <title>Kartik U - SWE</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
+        <link href="plugins/material/css/materialdesignicons.min.css" rel="stylesheet"/>
+        <link href="plugins/simplebar/simplebar.css" rel="stylesheet"/>
+
+        <!-- PLUGINS CSS STYLE -->
+        <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
+        <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet"/>
+        <link href="plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+        <link href="plugins/daterangepicker/daterangepicker.css" rel="stylesheet"/>
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <link href="plugins/toaster/toastr.min.css" rel="stylesheet"/>
+        <link href="plugins/fullcalendar/core-4.3.1/main.min.css" rel="stylesheet">
+        <link href="plugins/fullcalendar/daygrid-4.3.0/main.min.css" rel="stylesheet">
+
+        <!-- MONO CSS -->
+        <link id="main-css-href" rel="stylesheet" href="index.css"/>
+
+        <!-- FAVICON -->
+        <!-- <link href="images/favicon.png" rel="shortcut icon"/> -->
+        <script src="plugins/nprogress/nprogress.js"></script>
     </head>
-    <body>
-        <div class="navbar">
-            <a href="#home" onclick="animate()" id="homehref">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a id="contact" href="#open-modal">Contact</a>
-            <div id="open-modal" class="modal-window">
-                <div style="text-align: center;">
-                    <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
-                    <h1 style="font-size: 40px;">Contact Me</h1>
-                    <p style="padding-bottom: 15px;">Directly at kartik0109@gmail.com or by using this form</p>
-                    <div class="contactMe">
-                        <form method="POST" action="https://formspree.io/f/mnqrjdqz" onsubmit="sendEmail()">
-                            <input name="name" placeholder="Name" required="" type="text">
-                            <input name="email" required="" placeholder="Email" type="email">
-                            <input name="message" placeholder="Description" type="text">
-                            <button class="submit">Send</button>
-                        </form>
+
+    <body class="navbar-fixed" id="body">
+        <!-- Top Navbar -->
+        <header class="main-header">
+            <nav class="navbar" style="border: none;">
+                <!-- Menu Area -->
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Areas -->
+        <div class="content-wrapper">
+            <div class="content">
+                <div class="card card-default">
+                    <div class="card-body">
+                        <div class="row mt-3">
+                            <!-- Left Area -->
+                            <div class="col-xl-4 mb-5">
+                                <!-- Header Area -->
+                                <div>
+                                    <div class="row mt-5 mb-5">
+                                        <div>
+                                            <img class="rounded-circle" src="images/me.jpeg" alt="Profile Image" width="135" height="135">
+                                        </div>
+                                        <div class="col-8">
+                                            <h1 style="font-size: 45px;">Kartik</h1>
+                                            <h1 style="font-size: 45px;">Uppalapati</h1>
+                                        </div>
+                                    </div>
+                                    <h1 style="font-size: 20px;">SWE/Data Analyst</h1>
+                                </div>
+
+                                <!-- Tags Area -->
+                                <div class="mt-2 mb-3 row">
+                                    <div class="ml-3">
+                                        <i class="quickTag quickTagHover mdi mdi-clipboard-text" onclick="openResume()">
+                                            <span> Resume</span>
+                                        </i>
+                                    </div>
+                                    <div class="ml-1">
+                                        <i class="quickTag quickTagHover mdi mdi-linkedin-box" onclick="openLinkedIn()">
+                                            <span> LinkedIn</span>
+                                        </i>
+                                    </div>
+                                    <div class="ml-1">
+                                        <i class="quickTag quickTagHover mdi mdi-github-box" onclick="openGithub()">
+                                            <span> GitHub</span>
+                                        </i>
+                                    </div>
+                                    
+                                </div>
+                                <div class="mt-2 row">
+                                    <div class="ml-3">
+                                        <i class="quickTag quickTagHover mdi mdi-map-marker-radius" onclick="">
+                                            <span> Simi Valley, CA</span>
+                                        </i>
+                                        <div id="chartDiv" class="globeChart mt-3 make-hidden">
+                                        </div>
+                                    </div>
+                                    <div class="ml-1">
+                                        <i class="quickTag quickTagHover mdi mdi-email" onclick="copyText('kartik0109@gmail.com')">
+                                            <span> Kartik0109@gmail.com</span>
+                                        </i>
+                                        <div id="message" class="globeChart mt-3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Area -->
+                            <div class="card col-xl-8 contentArea" style="background-color: var(--light);">
+                                <!-- About me Area -->
+                                <div class="rounded border bg-white py-5 px-3 px-md-4 px-lg-5 mb-6 mt-3">
+                                    <div class="d-flex justify-content-between">
+                                        <h2 class="text-dark font-weight-medium">
+                                            About Me
+                                        </h2>
+                                    </div>
+                                    <!-- Paragraphs -->
+                                    <div class="mt-5 ml-1 row">
+                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">
+                                            I'm a 25 year old expereinced software engineer with experience in
+                                            full stack, data analytics, and machine learning technologies.
+                                        </h5>
+                                    </div>
+                                    <div class="mt-5 ml-1 row">
+                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">
+                                            Graduated from Purdue in 2022 with a Bachelors in Computer Science and Math.
+                                        </h5>
+                                    </div>
+                                </div>
+
+                                <!-- Skills Area -->
+                                <div class="rounded border bg-white py-5 px-3 px-md-4 px-lg-5 mb-6 mt-3">
+                                    <!-- <div class="col-xl-3 col-md-4">
+                                        <div class="card card-default">
+                                            <div class="ml-3 row">
+                                                <div class="mt-1 icon-sm bg-secondary rounded-circle">
+                                                    <i class="mdi mdi-language-python"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <span class="h3 d-block">Python</span>
+                                                    <p>7 Years</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="d-flex justify-content-between">
+                                        <h2 class="text-dark font-weight-medium">Skills</h2>
+                                    </div>
+                                    <!-- Languages -->
+                                    <div class="mt-5 ml-1 row">
+                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Languages</h5>
+                                        <i class="quickTag mdi mdi-language-python" style="color: var(--info-dark);">
+                                            <span>Python</span>
+                                        </i>
+                                        <i class="quickTag mdi mdi-language-java" style="color: var(--info-dark);">
+                                            <span>Java</span>
+                                        </i>
+                                        <i class="quickTag mdi mdi-language-javascript" style="color: var(--info-dark);">
+                                            <span>JavaScript</span>
+                                        </i>
+                                        <i class="quickTag mdi mdi-language-typescript" style="color: var(--info-dark);">
+                                            <span>TypeScript</span>
+                                        </i>
+                                        <i class="quickTag mdi mdi-language-c" style="color: var(--info-dark);">
+                                            <i class="mdi mdi-language-cpp" style="color: var(--info-dark);">
+                                                <i class="mdi mdi-language-csharp" style="color: var(--info-dark);">
+                                                </i>
+                                            </i>
+                                        </i>
+                                        <i class="quickTag mdi mdi-language-html5" style="color: var(--info-dark);">
+                                            <span>HTML</span>
+                                        </i>
+                                        <i class="quickTag mdi mdi-language-css3" style="color: var(--info-dark);">
+                                            <span>CSS</span>
+                                        </i>
+                                    </div>
+                                    <!-- Frameworks -->
+                                    <div class="mt-5 ml-1 row">
+                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Frameworks</h5>
+                                        <i class="quickTag mdi mdi-react" style="color: var(--primary);">
+                                            <span>React</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--primary);">
+                                            <span>ExpressJS</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--primary);">
+                                            <span>NextJS</span>
+                                        </i>
+                                    </div>
+                                    <!-- Backend -->
+                                    <div class="mt-5 ml-1 row">
+                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Backend</h5>
+                                        <i class="quickTag" style="color: var(--teal);">
+                                            <span>Node.js</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--teal);">
+                                            <span>Microservices</span>
+                                        </i>
+                                    </div>
+                                    <!-- Databases -->
+                                    <div class="mt-5 ml-1 row">
+                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Databases</h5>
+                                        <i class="quickTag" style="color: var(--secondary);">
+                                            <span>SQL</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--secondary);">
+                                            <span>MySQL</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--secondary);">
+                                            <span>Postgres</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--secondary);">
+                                            <span>MongoDB</span>
+                                        </i>
+                                    </div>
+                                    <!-- Practices -->
+                                    <div class="mt-5 ml-1 row">
+                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Practices</h5>
+                                        <i class="quickTag" style="color: var(--orange);">
+                                            <span>Agile</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--orange);">
+                                            <span>Git</span>
+                                        </i>
+                                        <i class="quickTag" style="color: var(--orange);">
+                                            <span>Scrum</span>
+                                        </i>
+                                    </div>
+                                </div>
+
+                                <!-- Projects Area -->
+                                <div class="rounded border bg-white py-5 px-3 px-md-4 px-lg-5 mb-6 mt-3">
+                                    <div class="d-flex justify-content-between">
+                                        <h2 class="text-dark font-weight-medium">Projects</h2>
+                                    </div>
+                                    <div class="mt-5 ml-1 row">
+                                        <!-- Website -->
+                                        <div class="col-xl-4">
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-1">MMT Tutoring</h5>
+                                                    <p class="pb-3">Website dashboard</p>
+                                                    <img class="mb-4 card-img border" width="100" height="100" src="projects/mmt/landingPage.png">
+                                                    <p class="card-text pb-2">
+                                                        Built an online dashboard for a tutoring company I cofounded with my sister.
+                                                        I hosted the website and database on my own server and learned about
+                                                        networking, https and ssl security, secure login workflow, and port forwarding.
+                                                    </p>
+                                                    <i class="quickTag mdi mdi-language-javascript" style="color: var(--info-dark);">
+                                                        <i class="mdi mdi-language-html5" style="color: var(--info-dark);">
+                                                            <i class="mdi mdi-language-css3" style="color: var(--info-dark);">
+                                                            </i>
+                                                        </i>
+                                                    </i>
+                                                    <i class="quickTag" style="color: var(--teal);">
+                                                        <span>Node.js</span>
+                                                    </i>
+                                                    <span class="badge badge-pill badge-primary" style="cursor: pointer;" onclick="openMmtWebsite()">
+                                                        <i class="mdi mdi-18px mdi-code-tags"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Shell -->
+                                        <div class="col-xl-4">
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-1">Shell</h5>
+                                                    <p class="pb-3">Unix CLI</p>
+                                                    <img class="mb-4 card-img border" width="100" height="100" src="projects/shell/images/myshellView2.png">
+                                                    <p class="card-text pb-2">
+                                                        Rebuilt the command line interface known as Shell for a
+                                                        school project. Learned how to use completely new languages
+                                                        and technologies. The short turn around for the project completion
+                                                        challenged me to grow my skillset rapidly.
+                                                    </p>
+                                                    <i class="quickTag mdi mdi-language-c" style="color: var(--info-dark);">
+                                                        <i class="mdi mdi-language-cpp" style="color: var(--info-dark); font-style: normal;">
+                                                            <span>Yacc Lex</span>
+                                                        </i>
+                                                    </i>
+                                                    <span class="badge badge-pill badge-primary" style="cursor: pointer;" onclick="openShellCode()">
+                                                        <i class="mdi mdi-18px mdi-code-tags"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- KartsDL -->
+                                        <div class="col-xl-4">
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-1">KartsDL 2.0</h5>
+                                                    <p class="pb-3">A Music Downloader</p>
+                                                    <img class="mb-4 card-img" width="100" height="150" src="projects/kartsDL/new/songsScanned.png">
+                                                    <p class="card-text pb-2">
+                                                        A music downloading application rebuilt entirely in Electron
+                                                        for a cleaner more responsive UI, cross platform compatibility, and
+                                                        improved integration with other microservices.
+                                                    </p>
+                                                    <i class="quickTag" style="color: var(--info-dark);">
+                                                        <span>Electron</span>
+                                                    </i>
+                                                    <i class="quickTag" style="color: var(--teal);">
+                                                        <span>APIs</span>
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-1">KartsDL 1.0</h5>
+                                                    <p class="pb-3">A Music Downloader</p>
+                                                    <img class="mb-4 card-img" width="100" height="150" src="projects/kartsDL/old/images/myytldView.png">
+                                                    <p class="card-text pb-2">
+                                                        A music downloading application built entirely in Java.
+                                                        Using youtube-dl, ffmpeg, and the Spotify API to
+                                                        download songs, gather metadata, and save as mp3s.
+                                                    </p>
+                                                    <i class="quickTag mdi mdi-language-java" style="color: var(--info-dark);">
+                                                        <span>Java</span>
+                                                    </i>
+                                                    <i class="quickTag" style="color: var(--teal);">
+                                                        <span>APIs</span>
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="container">
-            <section id="home">
-                <div style="margin: auto;">
-                    <div style="text-align: center;">
-                        <h1 style="font-size: 100px; color: blanchedalmond;">Kartik U</h1>
-                        <p style="color: blanchedalmond; font-size: 40px;">Software/Cloud Engineer</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="about">
-                <div class="flexContainer">
-                    <div class="flexChild">
-                        <div class="aboutContentHolder">
-                            <div class="aboutContent">
-                                <h1>Hi, I'm Kartik!</h1>
-                                <br>
-                                <p>
-                                    I'm a software/cloud engineer with 2+ years of experience in commercial application and software development.
-                                    I help build innovative and cutting-edge business solutions that organizations use to serve clients and meet their needs. 
-                                    My expertise lies in building fullstack scalable applications using a wide range of front-end and back-end skills like
-                                    HTML, CSS, JavaScript, Python, Java, and C. I solved dataset problems by using ideas from distributed computing, large-scale design, 
-                                    real-time data processing, data storage, machine learning, and artificial intelligence. I also wrote clean code, drove technical design, 
-                                    and took responsibility for technical delivery of commercial solutions.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flexChild">
-                        <div>
-                            <h1 style="font-size: 100px; color: blanchedalmond; text-align: right;">About Me</h1>
-                        </div>
-                        <div>
-                            <a onclick="openResume()" 
-                            class="resumeButton fill" style="color: black; text-decoration: none;">My Resume</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="projects">
-                <div class="flexContainer">
-                    <div class="flexChild">
-                        <div>
-                            <h1 style="font-size: 100px; color: blanchedalmond;">My Projects</h1>
-                        </div>
-                    </div>
-                    <div class="flexChild" style="overflow: hidden;">
-                        <div class="cardHolder" style=" width: 70%; margin-left: 30%;">
-                            <div id="cardstuff" class="cardStuff" style="align-items: center;">
-                                <div id="buttondiv1" style="width: 15%; padding-left: 15px;">
-                                    <button id="buttondiv1button" onclick="prevCard()">&larr;</button>
-                                </div>
-                                <div class="card" style="width: 70%;">
-                                    <div class="content" style="height: 90%; padding: 15px;">
-                                        <div style="height: 20%; overflow-y: auto; padding-bottom: 5px;">
-                                            <h3 id="cardContentName">My Personal Website</h3>
-                                        </div>
-                                        <hr>
-                                        <div style="height: 60%; overflow-y: auto;">
-                                            <p id="cardContentDescription"><span>I created this website from scratch using HTML, CSS, and Javascript 
-                                                and hosted it on Github Pages to display my projects.
-                                                The source code for this project as well as all my other projects
-                                                can be found on my <a href="https://github.com/KartikUppalapati?tab=repositories">GitHub</a></span>
-                                            </p>
-                                        </div>
-                                        <div style="height: 10%;">
-                                            <a id="cardContentHref" href="index.html" onclick="openLink()">
-                                                Click To Refresh</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="buttondiv2" style="width: 15%; padding-right: 15px;">
-                                    <button id="buttondiv2button" onclick="nextCard()">&rarr;</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <script>
-            // Initialize variables
-            var cardNum = 0;
-            const cardNames = 
-            [
-                "My Personal Website",
-                "Music Downloader",
-                "My Shell Program",
-                //"Sheldon The Chatbot"
-            ];
-            const cardDescriptions = 
-            [
-                "I created this website from scratch using static HTML, CSS, and Javascript and hosted it on Github Pages to display my projects. The source code for this project as well as all my other projects can be found on my <a href='https://github.com/KartikUppalapati?tab=repositories'>GitHub</a>",
-                "This is a java application I created to download songs off of YouTube, scan them to find its metadata and save it as an mp3. The application uses various open source and publicly available software like YouTube-DL, mp3agic, and the Spotify API.",
-                "This is a shell program that I created to learn more about how an actual shell program works. It has all the same features as a regular shell including Wildcard substitution, Background processing, Command history, Input and output redirection, Piping, and Shell variable substitution.",
-                //"This is a chatbot I created and named after Sheldon Cooper. I created and trained this bot using Wit.ai and although it is still in training, it can hold subpar conversations much like the character Sheldon Cooper."
-
-            ];
-            const cardHrefs =
-            [
-                "index.html",
-                "index.html#projects",
-                "index.html#projects",
-                //"index.html#projects"
-            ];
-            const cardHrefsTitles =
-            [
-                "Click to Refresh",
-                "Click to View",
-                "Click to View",
-                //"Click to Chat"
-            ];
-
-            // Go to next card if not at end
-            function nextCard()
-            {
-                if (cardNum < cardNames.length - 1)
-                {
-                    // Adjust global card num
-                    cardNum = cardNum + 1;
-
-                    // Get elements
-                    var cardElementName = document.getElementById("cardContentName");
-                    var cardElementDescription = document.getElementById("cardContentDescription");
-                    var cardElementHref = document.getElementById("cardContentHref");
-
-                    // Change elements
-                    cardElementName.innerHTML = cardNames[cardNum];
-                    cardElementDescription.innerHTML = cardDescriptions[cardNum];
-                    cardElementHref.innerHTML = cardHrefsTitles[cardNum];
-                    cardElementHref.setAttribute("href", cardHrefs[cardNum]);
-                }
-            }
-
-            // Go to prev card if not at 1st card
-            function prevCard()
-            {
-                // If not out of bounds
-                if (cardNum - 1 >= 0)
-                {
-                    // Adjust global card num
-                    cardNum = cardNum - 1;
-
-                    // Get elements
-                    var cardElementName = document.getElementById("cardContentName");
-                    var cardElementDescription = document.getElementById("cardContentDescription");
-                    var cardElementHref = document.getElementById("cardContentHref");
-
-                    // Change elements
-                    cardElementName.innerHTML = cardNames[cardNum];
-                    cardElementDescription.innerHTML = cardDescriptions[cardNum];
-                    cardElementHref.innerHTML = cardHrefsTitles[cardNum];
-                    cardElementHref.setAttribute("href", cardHrefs[cardNum]);
-                }
-            }
-
-            // Adding this prevents project card to home page scroll bug
-            function animate() 
-            {
-                var myNameElement = document.getElementById("myname");
-            }
-
-            // Open link based on project card num
-            function openLink()
-            {
-                switch(cardNum) {
-                    case 1: window.open('myytld.html', '_blank'); break;
-                    case 2: window.open('myshell.html', '_blank');break;
-                    case 3: window.open('chatbot.html', '_blank');break;
-                    default: break;
-                }
-            }
-
-            // Open resume function for button
-            function openResume()
-            {
-                window.open('Kartik U Resume.pdf', '_blank');
-            }
-
-            // After email sent close modal
-            function sendEmail()
-            {
-                window.location.href = "#modal-close";
-            }
-        </script>
     </body>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>  
+    <script src="js/mono.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- <script defer src="js/observe.js"></script> -->
+    <script src="plugins/amchart/map.min.js"></script>
+    <script src="plugins/amchart/index.min.js"></script>
+    <script src="plugins/amchart/Animated.min.js"></script>
+    <script src="plugins/amchart/worldLow.min.js"></script> 
+
+    <script>
+        // Intersection observer
+        const observer = new IntersectionObserver((entries) =>
+        {
+            entries.forEach((entry) =>
+            {
+                console.log(entry);
+                if (entry.isIntersecting)
+                {
+                    entry.target.classList.add("show");
+                }
+                else
+                {
+                    entry.target.classList.remove("show");
+                }
+            });
+        });
+
+        // Function to copy text to clipboard
+        function copyText(text)
+        {
+            navigator.clipboard.writeText(text);
+            message("Copied to clipboard!");
+        }
+
+        // Display success message
+        function message(text)
+        {
+            // Create divs
+            var msgDiv = document.getElementById("message");
+            var msg = document.createElement("div");
+            msg.setAttribute("class", "successMessage");
+            msg.appendChild(document.createTextNode(text));
+            
+            // Remove prev message
+            try
+            {
+                msgDiv.removeChild(msgDivMsg);
+            }
+            catch (error) {}
+            
+            msgDiv.appendChild(msg);
+            msgDivMsg = msg;
+
+            // Clear message
+            setTimeout(function ()
+            {
+                msgDiv.removeChild(msg);
+            }, 1500);
+        };
+
+        // Open function for github button
+        function openGithub()
+        {
+            window.open("https://github.com/KartikUppalapati", "_blank");
+        }
+
+        // Open function for github repo
+        function openShellCode()
+        {
+            window.open("https://github.com/KartikUppalapati/myShellProject", "_blank").focus();
+        }
+        
+        // Open function for linkedin button
+        function openLinkedIn()
+        {
+            window.open("https://www.linkedin.com/in/kartik-ravi-uppalapati-9a6292187/", "_blank").focus();
+        }
+        
+        // Open function for linkedin button
+        function openMmtWebsite()
+        {
+            window.open("https://123mmt.github.io/", "_blank").focus();
+        }
+
+        // Open resume function for button
+        function openResume()
+        {
+            window.open("Kartik U Resume.pdf", "_blank");
+        }
+
+        // Function to scroll to contact me area
+        function scrollToBottomSmoothly(duration)
+        {
+            const start = window.scrollY;
+            const end = document.body.scrollHeight - window.innerHeight;
+            const startTime = performance.now();
+
+            function scrollStep(timestamp)
+            {
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                window.scrollTo(0, start + (end - start) * progress);
+
+                if (progress < 1) {
+                requestAnimationFrame(scrollStep);
+                }
+            }
+            requestAnimationFrame(scrollStep);
+        }
+    
+        // Scroll for css
+        window.addEventListener('scroll', () =>
+        {
+            document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+        }, false);
+    </script>
 </html>

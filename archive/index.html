@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Kartik Uppalapati - Software Engineer</title>
+        <link rel="stylesheet" href="mystyle.css">
+        <link rel="icon" sizes="16x16" href="favicon.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="favicon.png">
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#home" onclick="animate()" id="homehref">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a id="contact" href="#open-modal">Contact</a>
+            <div id="open-modal" class="modal-window">
+                <div style="text-align: center;">
+                    <a href="#modal-close" class="modal-close"><p style="color: black;">&times;</p></a>
+                    <h1 style="font-size: 40px;">Contact Me</h1>
+                    <div class="contactMe">
+                        <form method="POST" action="https://formspree.io/f/mnqrjdqz" onsubmit="sendEmail()">
+                            <input name="name" placeholder="Name" required="" type="text">
+                            <input name="email" required="" placeholder="Email" type="email">
+                            <input name="message" placeholder="Description" type="text">
+                            <button class="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <section id="home" style="text-align: center; background-color: lightblue;">
+                <div style="margin: auto;">
+                    <div>
+                        <h1 style="font-size: 200px;">CIAO</h1>
+                        <h1 style="font-size: 100px;">I'm Kartik Uppalapati</h1>
+                        <p style="font-size: 40px;">Software/Cloud Engineer</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" style="background-color: blanchedalmond;">
+                <div class="flexContainer">
+                    <div class="flexChild">
+                        <div class="aboutContentHolder">
+                            <div class="aboutContent">
+                                <h1>About Me</h1>
+                                <br>
+                                <p>
+                                    I'm a software/cloud engineer with 2+ years of experience in commercial application and software development.
+                                    I help build innovative and cutting-edge business solutions that organizations use to serve clients and meet their needs. 
+                                    My expertise lies in building fullstack scalable applications using a wide range of front-end and back-end skills like
+                                    HTML, CSS, JavaScript, Python, Java, and C. I solved dataset problems by using ideas from distributed computing, large-scale design, 
+                                    real-time data processing, data storage, machine learning, and artificial intelligence. I also wrote clean code, drove technical design, 
+                                    and took responsibility for technical delivery of commercial solutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="flexChild">
+                        <div>
+                            <h1 style="font-size: 100px; text-align: right;">About Me</h1>
+                        </div>
+                        <div>
+                            <a onclick="openResume()" 
+                            class="resumeButton fill">My Resume</a>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+            
+            <section id="projects" style="background-color: plum;">
+                <div class="flexContainer">
+                    <div class="flexChild">
+                        <div>
+                            <h1 style="font-size: 100px;">My Projects</h1>
+                        </div>
+                    </div>
+                    <div class="flexChild" style="overflow: hidden;">
+                        <div class="cardHolder" style=" width: 70%; margin-left: 30%;">
+                            <div id="cardstuff" class="cardStuff" style="align-items: center;">
+                                <div id="buttondiv1" style="width: 15%; padding-left: 15px;">
+                                    <button id="buttondiv1button" onclick="prevCard()">&larr;</button>
+                                </div>
+                                <div class="card" style="width: 70%;">
+                                    <div class="content" style="height: 90%; padding: 15px;">
+                                        <div style="height: 20%; overflow-y: auto; padding-bottom: 5px;">
+                                            <h3 id="cardContentName">My Personal Website</h3>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 60%; overflow-y: auto;">
+                                            <p id="cardContentDescription"><span>I created this website from scratch using HTML, CSS, and Javascript 
+                                                and hosted it on Github Pages to display my projects.
+                                                The source code for this project as well as all my other projects
+                                                can be found on my <a href="https://github.com/KartikUppalapati?tab=repositories">GitHub</a></span>
+                                            </p>
+                                        </div>
+                                        <div style="height: 10%;">
+                                            <a id="cardContentHref" href="index.html" onclick="openLink()">
+                                                Click To Refresh</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="buttondiv2" style="width: 15%; padding-right: 15px;">
+                                    <button id="buttondiv2button" onclick="nextCard()">&rarr;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="end" style="text-align: center; background-color: lightpink;">
+                <div style="margin: auto;">
+                    <div>
+                        <h1 style="font-size: 200px;">BELLA</h1>
+                        <h1 style="font-size: 200px;">CIAO</h1>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            // Initialize variables
+            var cardNum = 0;
+            const cardNames = 
+            [
+                "My Personal Website",
+                "Music Downloader",
+                "My Shell Program",
+                //"Sheldon The Chatbot"
+            ];
+            const cardDescriptions = 
+            [
+                "I created this website from scratch using static HTML, CSS, and Javascript and hosted it on Github Pages to display my projects. The source code for this project as well as all my other projects can be found on my <a href='https://github.com/KartikUppalapati?tab=repositories'>GitHub</a>",
+                "This is a java application I created to download songs off of YouTube, scan them to find its metadata and save it as an mp3. The application uses various open source and publicly available software like YouTube-DL, mp3agic, and the Spotify API.",
+                "This is a shell program that I created to learn more about how an actual shell program works. It has all the same features as a regular shell including Wildcard substitution, Background processing, Command history, Input and output redirection, Piping, and Shell variable substitution.",
+                //"This is a chatbot I created and named after Sheldon Cooper. I created and trained this bot using Wit.ai and although it is still in training, it can hold subpar conversations much like the character Sheldon Cooper."
+
+            ];
+            const cardHrefs =
+            [
+                "index.html",
+                "index.html#projects",
+                "index.html#projects",
+                //"index.html#projects"
+            ];
+            const cardHrefsTitles =
+            [
+                "Click to Refresh",
+                "Click to View",
+                "Click to View",
+                //"Click to Chat"
+            ];
+
+            // Go to next card if not at end
+            function nextCard()
+            {
+                if (cardNum < cardNames.length - 1)
+                {
+                    // Adjust global card num
+                    cardNum = cardNum + 1;
+
+                    // Get elements
+                    var cardElementName = document.getElementById("cardContentName");
+                    var cardElementDescription = document.getElementById("cardContentDescription");
+                    var cardElementHref = document.getElementById("cardContentHref");
+
+                    // Change elements
+                    cardElementName.innerHTML = cardNames[cardNum];
+                    cardElementDescription.innerHTML = cardDescriptions[cardNum];
+                    cardElementHref.innerHTML = cardHrefsTitles[cardNum];
+                    cardElementHref.setAttribute("href", cardHrefs[cardNum]);
+                }
+            }
+
+            // Go to prev card if not at 1st card
+            function prevCard()
+            {
+                // If not out of bounds
+                if (cardNum - 1 >= 0)
+                {
+                    // Adjust global card num
+                    cardNum = cardNum - 1;
+
+                    // Get elements
+                    var cardElementName = document.getElementById("cardContentName");
+                    var cardElementDescription = document.getElementById("cardContentDescription");
+                    var cardElementHref = document.getElementById("cardContentHref");
+
+                    // Change elements
+                    cardElementName.innerHTML = cardNames[cardNum];
+                    cardElementDescription.innerHTML = cardDescriptions[cardNum];
+                    cardElementHref.innerHTML = cardHrefsTitles[cardNum];
+                    cardElementHref.setAttribute("href", cardHrefs[cardNum]);
+                }
+            }
+
+            // Adding this prevents project card to home page scroll bug
+            function animate() 
+            {
+                var myNameElement = document.getElementById("myname");
+            }
+
+            // Open link based on project card num
+            function openLink()
+            {
+                switch(cardNum) {
+                    case 1: window.open('myytld.html', '_blank'); break;
+                    case 2: window.open('myshell.html', '_blank');break;
+                    case 3: window.open('chatbot.html', '_blank');break;
+                    default: break;
+                }
+            }
+
+            // Open resume function for button
+            function openResume()
+            {
+                window.open('Kartik U Resume.pdf', '_blank');
+            }
+
+            // After email sent close modal
+            function sendEmail()
+            {
+                window.location.href = "#modal-close";
+            }
+        </script>
+    </body>
+</html>
