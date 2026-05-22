@@ -24,429 +24,523 @@
         <!-- MONO CSS -->
         <link id="main-css-href" rel="stylesheet" href="index.css"/>
 
+        <!-- Custom Styles -->
+        <style>
+            :root {
+                --accent-color: var(--info-dark);
+                --text-dark: #1a1a1a;
+                --text-light: #666;
+                --light-bg: #f9f9f9;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html, body {
+                height: 100%;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                background-color: white;
+                color: var(--text-dark);
+                line-height: 1.6;
+            }
+
+            body {
+                background: white;
+            }
+
+            header {
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            nav {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            nav a {
+                color: var(--text-dark) !important;
+                text-decoration: none;
+                font-style: italic;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            nav a::before {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 20px;
+                width: 0;
+                height: 2px;
+                background-color: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+
+            nav a:hover {
+                color: var(--accent-color);
+            }
+
+            nav a:hover::before {
+                width: calc(100% - 40px);
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+
+            h1, h2, h3, h4, h5 {
+                color: var(--text-dark);
+                font-weight: 600;
+                line-height: 1.3;
+            }
+
+            h1.display-4 {
+                font-size: 2.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .lead {
+                font-size: 1.2rem;
+                color: var(--accent-color);
+                font-style: italic;
+                font-weight: 500;
+            }
+
+            p {
+                color: var(--text-dark);
+                margin-bottom: 1.5rem;
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            a {
+                color: var(--accent-color);
+                text-decoration: underline;
+                transition: opacity 0.3s ease;
+            }
+
+            a:hover {
+                opacity: 0.8;
+            }
+
+            section {
+                margin-bottom: 4rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                padding-bottom: 0;
+            }
+
+            section h3 a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            section h3 a:hover {
+                opacity: 1;
+                color: #333;
+            }
+
+            section h3 a::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+
+            section h3 a:hover::after {
+                width: 100%;
+            }
+
+            ul.list-unstyled {
+                position: relative;
+            }
+
+            ul.list-unstyled li {
+                position: relative;
+                padding-left: 40px;
+                margin-bottom: 2.5rem;
+                transition: all 0.3s ease;
+            }
+
+            ul.list-unstyled li:hover {
+                padding-left: 50px;
+            }
+
+            ul.list-unstyled li::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 6px;
+                width: 12px;
+                height: 12px;
+                background-color: var(--accent-color);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                box-shadow: 0 0 0 0 rgba(216, 95, 47, 0.3);
+            }
+
+            ul.list-unstyled li:hover::before {
+                box-shadow: 0 0 0 8px rgba(216, 95, 47, 0.1);
+            }
+
+            .list-unstyled li time {
+                color: var(--accent-color);
+                font-weight: 600;
+                font-size: 14px;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .list-unstyled li h3 {
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .list-unstyled li p {
+                color: var(--text-light);
+                font-size: 15px;
+                margin-bottom: 0.5rem;
+            }
+
+            .badge {
+                background-color: #f0f0f0;
+                color: var(--text-dark);
+                padding: 0.4rem 0.8rem;
+                font-weight: 500;
+                font-size: 13px;
+                border-radius: 4px;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+                transition: all 0.3s ease;
+            }
+
+            code {
+                background-color: #f0f0f0;
+                padding: 2px 6px;
+                border-radius: 3px;
+                font-family: 'Monaco', 'Courier New', monospace;
+                color: var(--text-dark);
+            }
+
+            .text-muted {
+                color: var(--text-light) !important;
+            }
+
+            .lh-lg {
+                line-height: 1.8 !important;
+            }
+
+            /* Project styling */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .project-item {
+                padding-bottom: 2rem;
+                margin-bottom: 0;
+                border-bottom: 1px solid #f0f0f0;
+                transition: all 0.3s ease;
+            }
+
+            .projects-grid .project-item {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .projects-grid .project-item:hover {
+                padding-left: 0;
+                transform: translateY(-5px);
+            }
+
+            .project-item:last-child {
+                border-bottom: none;
+            }
+
+            .project-item:hover {
+                padding-left: 20px;
+                padding-right: 0;
+            }
+
+            .project-item h3 {
+                transition: all 0.3s ease;
+            }
+
+            .project-item h3 a {
+                color: var(--text-dark);
+                text-decoration: none;
+                position: relative;
+                display: inline-block;
+            }
+
+            .project-item h3 a::after {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+
+            .project-item h3 a:hover {
+                color: var(--accent-color);
+                text-decoration: none;
+            }
+
+            .project-item h3 a:hover::after {
+                width: 100%;
+            }
+
+            @media (max-width: 768px) {
+                main {
+                    max-width: 100% !important;
+                    padding: 30px 20px;
+                }
+
+                h1.display-4 {
+                    font-size: 2rem;
+                }
+
+                nav a {
+                    padding: 0 12px;
+                    font-size: 14px;
+                }
+
+                section h2 {
+                    font-size: 1.5rem;
+                }
+            }
+        </style>
+
         <!-- FAVICON -->
         <!-- <link href="images/favicon.png" rel="shortcut icon"/> -->
         <script src="plugins/nprogress/nprogress.js"></script>
     </head>
 
-    <body class="navbar-fixed" id="body">
-        <!-- Top Navbar -->
-        <header class="main-header">
-            <nav class="navbar" style="border: none;">
-                <!-- Menu Area -->
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                    </ul>
-                </div>
+    <body id="body">
+        <!-- Navigation -->
+        <header class="py-5">
+            <nav class="container">
+                <ul class="nav justify-content-end" style="list-style: none; padding: 0; margin: 0;">
+                    <li class="nav-item mx-4" style="cursor: pointer;" onclick="navigator(this)">
+                        <a class="nav-link" style="font-style: italic; color: #333; text-decoration: none;">About</a>
+                    </li>
+                    <li class="nav-item mx-4" style="cursor: pointer;" onclick="navigator(this)">
+                        <a class="nav-link" style="font-style: italic; color: #333; text-decoration: none;">Projects</a>
+                    </li>
+                    <li class="nav-item mx-4" style="cursor: pointer;" onclick="navigator(this)">
+                        <a class="nav-link" style="font-style: italic; color: #333; text-decoration: none;">Blog</a>
+                    </li>
+                </ul>
             </nav>
         </header>
 
-        <!-- Main Areas -->
-        <div class="content-wrapper">
-            <div class="content">
-                <div class="card card-default">
-                    <div class="card-body">
-                        <div class="row mt-3">
-                            <!-- Left Area -->
-                            <div class="col-xl-4 mb-5">
-                                <!-- Header Area -->
-                                <div>
-                                    <div class="row mt-5 mb-5">
-                                        <div>
-                                            <img class="rounded-circle" src="images/me.jpeg" alt="Profile Image" width="135" height="135">
-                                        </div>
-                                        <div class="ml-3">
-                                            <h1 style="font-size: 45px;">Kartik</h1>
-                                            <h1 style="font-size: 45px;">Uppalapati</h1>
-                                        </div>
-                                    </div>
-                                    <h1 style="font-size: 20px;">SWE/Data Analyst</h1>
-                                </div>
+        <main class="container" style="max-width: 900px;">
+            <!-- About Section -->
+            <section id="aboutSection" class="mb-5">
+                <div class="mb-5">
+                    <h1 class="display-4 mb-2" style="font-weight: 600;">Kartik Uppalapati</h1>
+                    <p class="lead" style="color: var(--info-dark); font-style: italic;">Software Engineer</p>
+                </div>
 
-                                <!-- Tags Area -->
-                                <div class="mt-2 mb-3 row">
-                                    <div class="ml-3">
-                                        <i class="quickTag quickTagHover mdi mdi-clipboard-text" onclick="openResume()">
-                                            <span> Resume</span>
-                                        </i>
-                                    </div>
-                                    <div class="ml-1">
-                                        <i class="quickTag quickTagHover mdi mdi-linkedin-box" onclick="openLinkedIn()">
-                                            <span> LinkedIn</span>
-                                        </i>
-                                    </div>
-                                    <div class="ml-1">
-                                        <i class="quickTag quickTagHover mdi mdi-github-box" onclick="openGithub()">
-                                            <span> GitHub</span>
-                                        </i>
-                                    </div>
-                                    
-                                </div>
-                                <div class="mt-2 row">
-                                    <div class="ml-3">
-                                        <i class="quickTag quickTagHover mdi mdi-map-marker-radius" onclick="">
-                                            <span> Simi Valley</span>
-                                        </i>
-                                        <div id="chartDiv" class="globeChart mt-3 make-hidden">
-                                        </div>
-                                    </div>
-                                    <div class="ml-1">
-                                        <i class="quickTag quickTagHover mdi mdi-email" onclick="copyText('kartik0109@gmail.com')">
-                                            <span> Kartik0109@gmail.com</span>
-                                        </i>
-                                        <div id="message" class="globeChart mt-3">
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="mb-5">
+                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
+                        Graduated from Purdue University in 2022 with a Bachelor's degree in Computer Science / Mathematics. 
+                        Since then, I've worked at Meta and General Motors on machine learning safety initiatives.
+                    </p>
+                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
+                        I'm a software engineer with a passion for machine learning, building full-stack applications, 
+                        analyzing complex data for model training. I specialize in creating elegant solutions 
+                        to challenging problems, with experience across AI infra, backend systems, machine learning, and data engineering.
+                    </p>
+                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
+                        Outside of coding, I enjoy playing basketball, gaming, exploring new technologies, and learning
+                        new tools to stay current in this fast-paced industry.
+                    </p>
+                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
+                        You can reach me at <code style="background-color: #f0f0f0; padding: 2px 6px; border-radius: 3px;">kartik0109@gmail.com</code>
+                        or connect with me on
+                        <a style="color: var(--info-dark); text-decoration: none; cursor: pointer;"
+                        onclick="window.open('https://www.linkedin.com/in/kartiku', '_blank');">LinkedIn</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experienceSection" class="mb-5" style="display: none;">
+                <h2 class="h2 mb-4" style="font-weight: 600;">Experience</h2>
+                
+                <ul class="list-unstyled" style="position: relative; padding-left: 30px;">
+                    <!-- Timeline item -->
+                    <li class="mb-5" style="padding-left: 20px;">
+                        <div style="position: absolute; left: -10px; top: 0; width: 12px; height: 12px; background-color: var(--info-dark); border-radius: 50%;"></div>
+                        <time class="d-block mb-2" style="color: var(--info-dark); font-weight: 500;">Present</time>
+                        <h3 class="h5 mb-1" style="font-weight: 600;">Full Stack Software Engineer</h3>
+                        <p class="text-muted mb-2">Building web applications, APIs, and data solutions</p>
+                    </li>
+
+                    <li class="mb-5" style="padding-left: 20px;">
+                        <div style="position: absolute; left: -10px; top: 0; width: 12px; height: 12px; background-color: var(--info-dark); border-radius: 50%;"></div>
+                        <time class="d-block mb-2" style="color: #999; font-weight: 500;">2022 - Present</time>
+                        <h3 class="h5 mb-1" style="font-weight: 600;">Purdue University Graduate</h3>
+                        <p class="text-muted mb-2">B.S. in Computer Science and Mathematics</p>
+                    </li>
+
+                    <li class="mb-5" style="padding-left: 20px;">
+                        <div style="position: absolute; left: -10px; top: 0; width: 12px; height: 12px; background-color: var(--info-dark); border-radius: 50%;"></div>
+                        <time class="d-block mb-2" style="color: #999; font-weight: 500;">2020 - 2021</time>
+                        <h3 class="h5 mb-1" style="font-weight: 600;">Co-founder, MMT Tutoring</h3>
+                        <p class="text-muted mb-2">Built full-stack dashboard with Node.js, Express, and MySQL. Managed server infrastructure and security.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projectsSection" class="mb-5" style="display: none;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-4">
+                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">AI / ML</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">PyTorch</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">TensorFlow</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Scikit-learn</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">XGBoost</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Cvxpy</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Pandas</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">RAG</span>
                             </div>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">Languages</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Python</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Java</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">JavaScript</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">C/C++</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">HTML/CSS</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Hack</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">PHP</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">Frameworks</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">React</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Node.js</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Flask</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">JUnit</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Express</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Material UI</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Fast API</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">Tools</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">MySQL</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">PostgreSQL</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Docker</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">AWS/GCP</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Railway</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Supabase</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Databricks</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">XCode</span>
+                            </div>
+                        </div>
+                    </div>
 
-                            <!-- Right Area -->
-                            <div class="card col-xl-8 contentArea" style="background-color: var(--light);">
-                                <!-- About me Area -->
-                                <div class="rounded border bg-white py-5 px-3 px-md-4 px-lg-5 mb-6 mt-3">
-                                    <div class="d-flex justify-content-between">
-                                        <h2 class="text-dark font-weight-medium">
-                                            About Me
-                                        </h2>
-                                    </div>
-                                    <!-- Paragraphs -->
-                                    <div class="mt-5 ml-1 row">
-                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">
-                                            I'm a 25 year old software engineer with experience in
-                                            full stack, data analytics, and machine learning technologies.
-                                        </h5>
-                                    </div>
-                                    <div class="mt-5 ml-1 row">
-                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">
-                                            Graduated from Purdue in 2022 with a Bachelor's degree in Computer Science and Math.
-                                        </h5>
-                                    </div>
-                                </div>
-
-                                <!-- Skills Area -->
-                                <div class="rounded border bg-white py-5 px-3 px-md-4 px-lg-5 mb-6 mt-3">
-                                    <!-- <div class="col-xl-3 col-md-4">
-                                        <div class="card card-default">
-                                            <div class="ml-3 row">
-                                                <div class="mt-1 icon-sm bg-secondary rounded-circle">
-                                                    <i class="mdi mdi-language-python"></i>
-                                                </div>
-                                                <div class="ml-3">
-                                                    <span class="h3 d-block">Python</span>
-                                                    <p>7 Years</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <div class="d-flex justify-content-between">
-                                        <h2 class="text-dark font-weight-medium">Skills</h2>
-                                    </div>
-                                    <!-- Languages -->
-                                    <div class="mt-5 ml-1 row">
-                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Languages</h5>
-                                        <i class="quickTag mdi mdi-language-python" style="color: var(--info-dark);">
-                                            <span>Python</span>
-                                        </i>
-                                        <i class="quickTag mdi mdi-language-java" style="color: var(--info-dark);">
-                                            <span>Java</span>
-                                        </i>
-                                        <i class="quickTag mdi mdi-language-javascript" style="color: var(--info-dark);">
-                                            <span>JavaScript</span>
-                                        </i>
-                                        <i class="quickTag mdi mdi-language-typescript" style="color: var(--info-dark);">
-                                            <span>TypeScript</span>
-                                        </i>
-                                        <i class="quickTag mdi mdi-language-c" style="color: var(--info-dark);">
-                                            <i class="mdi mdi-language-cpp" style="color: var(--info-dark);">
-                                                <i class="mdi mdi-language-csharp" style="color: var(--info-dark);">
-                                                </i>
-                                            </i>
-                                        </i>
-                                        <i class="quickTag mdi mdi-language-html5" style="color: var(--info-dark);">
-                                            <span>HTML</span>
-                                        </i>
-                                        <i class="quickTag mdi mdi-language-css3" style="color: var(--info-dark);">
-                                            <span>CSS</span>
-                                        </i>
-                                    </div>
-                                    <!-- Frameworks -->
-                                    <div class="mt-5 ml-1 row">
-                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Frameworks</h5>
-                                        <i class="quickTag mdi mdi-react" style="color: var(--primary);">
-                                            <span>React</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--primary);">
-                                            <span>ExpressJS</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--primary);">
-                                            <span>NextJS</span>
-                                        </i>
-                                    </div>
-                                    <!-- Backend -->
-                                    <div class="mt-5 ml-1 row">
-                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Backend</h5>
-                                        <i class="quickTag" style="color: var(--teal);">
-                                            <span>Node.js</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--teal);">
-                                            <span>Microservices</span>
-                                        </i>
-                                    </div>
-                                    <!-- Databases -->
-                                    <div class="mt-5 ml-1 row">
-                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Databases</h5>
-                                        <i class="quickTag" style="color: var(--secondary);">
-                                            <span>SQL</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--secondary);">
-                                            <span>MySQL</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--secondary);">
-                                            <span>Postgres</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--secondary);">
-                                            <span>MongoDB</span>
-                                        </i>
-                                    </div>
-                                    <!-- Practices -->
-                                    <div class="mt-5 ml-1 row">
-                                        <h5 class="text-dark font-weight-medium mr-3 mt-1">Practices</h5>
-                                        <i class="quickTag" style="color: var(--orange);">
-                                            <span>Agile</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--orange);">
-                                            <span>Git</span>
-                                        </i>
-                                        <i class="quickTag" style="color: var(--orange);">
-                                            <span>Scrum</span>
-                                        </i>
-                                    </div>
-                                </div>
-
-                                <!-- Projects Area -->
-                                <div class="rounded border bg-white py-5 px-3 px-md-4 px-lg-5 mb-6 mt-3">
-                                    <div class="d-flex justify-content-between">
-                                        <h2 class="text-dark font-weight-medium">Projects</h2>
-                                    </div>
-                                    <div class="mt-5 ml-1 row">
-                                        <!-- Website -->
-                                        <div class="col-xl-4">
-                                            <div class="card mb-4">
-                                                <div class="card-body">
-                                                    <h5 class="card-title mb-1">MMT Tutoring</h5>
-                                                    <p class="pb-3">Website dashboard</p>
-                                                    <img class="mb-4 card-img border" width="100" height="100" src="projects/mmt/landingPage.png">
-                                                    <p class="card-text pb-2">
-                                                        Built an online dashboard for a tutoring company I cofounded with my sister.
-                                                        I hosted the website and database on my own server and learned about
-                                                        networking, https and ssl security, secure login workflow, and port forwarding.
-                                                    </p>
-                                                    <i class="quickTag mdi mdi-language-javascript" style="color: var(--info-dark);">
-                                                        <i class="mdi mdi-language-html5" style="color: var(--info-dark);">
-                                                            <i class="mdi mdi-language-css3" style="color: var(--info-dark);">
-                                                            </i>
-                                                        </i>
-                                                    </i>
-                                                    <i class="quickTag" style="color: var(--teal);">
-                                                        <span>Node</span>
-                                                    </i>
-                                                    <span class="badge badge-pill badge-primary" style="cursor: pointer;" onclick="openMmtWebsite()">
-                                                        <i class="mdi mdi-18px mdi-code-tags"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Shell -->
-                                        <div class="col-xl-4">
-                                            <div class="card mb-4">
-                                                <div class="card-body">
-                                                    <h5 class="card-title mb-1">Shell</h5>
-                                                    <p class="pb-3">Unix CLI</p>
-                                                    <img class="mb-4 card-img border" width="100" height="100" src="projects/shell/images/myshellView2.png">
-                                                    <p class="card-text pb-2">
-                                                        Rebuilt the command line interface Shell for a
-                                                        school project. I learned how to use completely new languages, frameworks,
-                                                        and technologies. With a short turn around for project completion
-                                                        I was challenged to grow my skillset rapidly.
-                                                    </p>
-                                                    <i class="quickTag mdi mdi-language-c" style="color: var(--info-dark);">
-                                                        <i class="mdi mdi-language-cpp" style="color: var(--info-dark); font-style: normal;">
-                                                            <span>Yacc Lex</span>
-                                                        </i>
-                                                    </i>
-                                                    <span class="badge badge-pill badge-primary" style="cursor: pointer;" onclick="openShellCode()">
-                                                        <i class="mdi mdi-18px mdi-code-tags"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- KartsDL -->
-                                        <div class="col-xl-4">
-                                            <div class="card mb-4">
-                                                <div class="card-body">
-                                                    <h5 class="card-title mb-1">KartsDL 2.0</h5>
-                                                    <p class="pb-3">A Music Downloader</p>
-                                                    <img class="mb-4 card-img" width="100" height="150" src="projects/kartsDL/new/songsScanned.png">
-                                                    <p class="card-text pb-2">
-                                                        A music downloading application rebuilt entirely in Electron
-                                                        for a cleaner more responsive UI, cross platform compatibility, and
-                                                        improved integration with other microservices.
-                                                    </p>
-                                                    <i class="quickTag" style="color: var(--info-dark);">
-                                                        <span>Electron</span>
-                                                    </i>
-                                                    <i class="quickTag" style="color: var(--teal);">
-                                                        <span>APIs</span>
-                                                    </i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div class="card mb-4">
-                                                <div class="card-body">
-                                                    <h5 class="card-title mb-1">KartsDL 1.0</h5>
-                                                    <p class="pb-3">A Music Downloader</p>
-                                                    <img class="mb-4 card-img" width="100" height="150" src="projects/kartsDL/old/images/myytldView.png">
-                                                    <p class="card-text pb-2">
-                                                        A music downloading application built entirely in Java.
-                                                        Using youtube-dl, ffmpeg, and the Spotify API to
-                                                        download songs, gather metadata, and save as mp3s.
-                                                    </p>
-                                                    <i class="quickTag mdi mdi-language-java" style="color: var(--info-dark);">
-                                                        <span>Java</span>
-                                                    </i>
-                                                    <i class="quickTag" style="color: var(--teal);">
-                                                        <span>APIs</span>
-                                                    </i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-md-8">
+                        <div class="project-item mb-3" onclick="window.open('https://123mmt.github.io/', '_blank')" style="cursor: pointer;">
+                            <h3 class="h5 mb-2" style="font-weight: 600;">
+                                <a style="color: #333; text-decoration: none;">
+                                    MMT Tutoring
+                                </a>
+                            </h3>
+                            <p class="text-muted mb-2" style="font-size: 14px;">2020 - Present</p>
+                            <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
+                                As lead engineer and co-founder, developed a end to end website for a tutoring company.
+                                Started off with self hosted server infrastructure, SSL security, and a secure login
+                                workflow but scaled grew so switched to  Supabase and Railway.
+                                Gained hands-on experience with networking and deployment.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Node.js</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Express</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">MySQL</span>
+                            </div>
+                        </div>
+                        <div class="project-item mb-3" onclick="window.open('https://github.com/KartikUppalapati/myShellProject', '_blank')" style="cursor: pointer;">
+                            <h3 class="h5 mb-2" style="font-weight: 600;">
+                                <a href="https://github.com/KartikUppalapati/myShellProject" style="color: #333; text-decoration: none;">
+                                    Unix Shell Implementation
+                                </a>
+                            </h3>
+                            <p class="text-muted mb-2" style="font-size: 14px;">2021</p>
+                            <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
+                                Rebuilt a command-line shell from scratch as a university project. This challenged me to rapidly 
+                                learn new languages and tools while implementing complex system-level concepts.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">C</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Yacc</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Lex</span>
+                            </div>
+                        </div>
+                        <div class="project-item mb-3" onclick="window.open('https://github.com/KartikUppalapati/KartsDL', '_blank')" style="cursor: pointer;">
+                            <h3 class="h5 mb-2" style="font-weight: 600;">
+                                KDL - Music Downloader
+                            </h3>
+                            <p class="text-muted mb-2" style="font-size: 14px;">2022 - Present</p>
+                            <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
+                                A music downloading application entirely in Electron for a modern and responsive UI. 
+                                Newest version features improved an cross-platform compatibility and integration with the Spotify APIs and microservices.
+                            </p>
+                            <div class="mt-3">
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Electron</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">JavaScript</span>
+                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">APIs</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </body>
 
     <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>  
-    <script src="js/mono.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- <script defer src="js/observe.js"></script> -->
-    <script src="plugins/amchart/map.min.js"></script>
-    <script src="plugins/amchart/index.min.js"></script>
-    <script src="plugins/amchart/Animated.min.js"></script>
-    <script src="plugins/amchart/worldLow.min.js"></script> 
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Intersection observer
-        const observer = new IntersectionObserver((entries) =>
+        // Header navigation
+        var currSection = "aboutSection";
+        function navigator(headerObj)
         {
-            entries.forEach((entry) =>
-            {
-                console.log(entry);
-                if (entry.isIntersecting)
-                {
-                    entry.target.classList.add("show");
-                }
-                else
-                {
-                    entry.target.classList.remove("show");
-                }
-            });
-        });
+            // Hide old
+            document.getElementById(currSection).style.display = "none";
 
-        // Function to copy text to clipboard
-        function copyText(text)
-        {
-            navigator.clipboard.writeText(text);
-            message("Copied to clipboard!");
+            // Show new
+            var headerSectionName = headerObj.children[0].textContent.toLowerCase() + "Section";
+            var sectionObj = document.getElementById(headerSectionName);
+            sectionObj.style.display = "block";
+            currSection = headerSectionName;
         }
-
-        // Display success message
-        function message(text)
-        {
-            // Create divs
-            var msgDiv = document.getElementById("message");
-            var msg = document.createElement("div");
-            msg.setAttribute("class", "successMessage");
-            msg.appendChild(document.createTextNode(text));
-            
-            // Remove prev message
-            try
-            {
-                msgDiv.removeChild(msgDivMsg);
-            }
-            catch (error) {}
-            
-            msgDiv.appendChild(msg);
-            msgDivMsg = msg;
-
-            // Clear message
-            setTimeout(function ()
-            {
-                msgDiv.removeChild(msg);
-            }, 1500);
-        };
-
-        // Open function for github button
-        function openGithub()
-        {
-            window.open("https://github.com/KartikUppalapati", "_blank");
-        }
-
-        // Open function for github repo
-        function openShellCode()
-        {
-            window.open("https://github.com/KartikUppalapati/myShellProject", "_blank").focus();
-        }
-        
-        // Open function for linkedin button
-        function openLinkedIn()
-        {
-            window.open("https://www.linkedin.com/in/kartik-ravi-uppalapati-9a6292187/", "_blank").focus();
-        }
-        
-        // Open function for linkedin button
-        function openMmtWebsite()
-        {
-            window.open("https://123mmt.github.io/", "_blank").focus();
-        }
-
-        // Open resume function for button
-        function openResume()
-        {
-            window.open("Kartik U Resume.pdf", "_blank");
-        }
-
-        // Function to scroll to contact me area
-        function scrollToBottomSmoothly(duration)
-        {
-            const start = window.scrollY;
-            const end = document.body.scrollHeight - window.innerHeight;
-            const startTime = performance.now();
-
-            function scrollStep(timestamp)
-            {
-                const progress = Math.min((timestamp - startTime) / duration, 1);
-                window.scrollTo(0, start + (end - start) * progress);
-
-                if (progress < 1) {
-                requestAnimationFrame(scrollStep);
-                }
-            }
-            requestAnimationFrame(scrollStep);
-        }
-    
-        // Scroll for css
-        window.addEventListener('scroll', () =>
-        {
-            document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
-        }, false);
     </script>
 </html>
