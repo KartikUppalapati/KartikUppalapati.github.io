@@ -1,546 +1,115 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <title>Kartik U - SWE</title>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <title>Kartik U - SWE</title>
+    <meta name="description" content="Kartik Uppalapati, software engineer working on ML and safety systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout">
+        <section class="intro">
+            <button class="coin" type="button" aria-label="Flip portrait to see photo">
+                <span class="coin-inner">
+                    <span class="coin-face coin-front">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Illustrated portrait of Kartik">
+                            <g stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 101 C16 84 28 76 42 73 L50 86 L58 73 C72 76 84 84 86 101 Z" fill="#111"/>
+                                <path d="M43 63 L43 74 L57 74 L57 63" fill="#fff"/>
+                                <path d="M42 73 L50 86 L58 73" fill="#fff"/>
+                                <path d="M44 75 L50 78 L44 81 Z M56 75 L50 78 L56 81 Z" fill="#111" stroke-width="1.5"/>
+                                <ellipse cx="31" cy="47" rx="3.5" ry="5.5" fill="#fff"/>
+                                <ellipse cx="69" cy="47" rx="3.5" ry="5.5" fill="#fff"/>
+                                <ellipse cx="50" cy="44" rx="19" ry="23" fill="#fff"/>
+                                <path d="M30 45 C27 28 38 17 52 18 C65 19 73 28 70 45 C68 36 64 31 58 30 C52 33 42 33 36 31 C33 34 31 39 30 45 Z" fill="#111"/>
+                                <path d="M38 40 Q42 37.5 46 39.5 M54 39.5 Q58 37.5 62 40" fill="none" stroke-width="2.8"/>
+                                <path d="M50 47 Q48 53 51 54" fill="none" stroke-width="2"/>
+                                <path d="M43 58 Q50 63.5 57 58" fill="none"/>
+                            </g>
+                            <circle cx="42" cy="45.5" r="1.7" fill="#111"/>
+                            <circle cx="58" cy="45.5" r="1.7" fill="#111"/>
+                        </svg>
+                    </span>
+                    <span class="coin-face coin-back">
+                        <img src="images/me.jpeg" alt="Photo of Kartik Uppalapati">
+                    </span>
+                </span>
+            </button>
+            <div>
+                <h1>Kartik Uppalapati</h1>
+                <p class="tagline">Software engineer working on ML and safety systems.</p>
+            </div>
+            <p>Purdue CS and Math, 2022. Previously General Motors, now on the Link Safety team at Meta.</p>
+            <p class="small">Reach me at <button class="copy" type="button" data-email="kartik0109@gmail.com" title="Copy email">kartik0109@gmail.com</button> <span class="copy-status" aria-live="polite"></span></p>
+            <div class="icons">
+                <a href="https://github.com/KartikUppalapati" aria-label="GitHub" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+                <a href="https://www.linkedin.com/in/kartiku" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0"/></svg></a>
+                <a href="Kartik_U_Resume.pdf" aria-label="Résumé" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></a>
+            </div>
+        </section>
 
-        <!-- GOOGLE FONTS -->
-        <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
-        <link href="plugins/material/css/materialdesignicons.min.css" rel="stylesheet"/>
-        <link href="plugins/simplebar/simplebar.css" rel="stylesheet"/>
-
-        <!-- PLUGINS CSS STYLE -->
-        <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
-        <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet"/>
-        <link href="plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
-        <link href="plugins/daterangepicker/daterangepicker.css" rel="stylesheet"/>
-        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-        <link href="plugins/toaster/toastr.min.css" rel="stylesheet"/>
-        <link href="plugins/fullcalendar/core-4.3.1/main.min.css" rel="stylesheet">
-        <link href="plugins/fullcalendar/daygrid-4.3.0/main.min.css" rel="stylesheet">
-
-        <!-- MONO CSS -->
-        <link id="main-css-href" rel="stylesheet" href="index.css"/>
-
-        <!-- Custom Styles -->
-        <style>
-            :root {
-                --accent-color: var(--info-dark);
-                --text-dark: #1a1a1a;
-                --text-light: #666;
-                --light-bg: #f9f9f9;
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            html, body {
-                height: 100%;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-                background-color: white;
-                color: var(--text-dark);
-                line-height: 1.6;
-            }
-
-            body {
-                background: white;
-            }
-
-            header {
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            nav {
-                display: flex;
-                justify-content: flex-end;
-            }
-
-            nav a {
-                color: var(--text-dark) !important;
-                text-decoration: none;
-                font-style: italic;
-                font-size: 16px;
-                transition: all 0.3s ease;
-                padding: 0 20px;
-                position: relative;
-            }
-
-            nav a::before {
-                content: '';
-                position: absolute;
-                bottom: -5px;
-                left: 20px;
-                width: 0;
-                height: 2px;
-                background-color: var(--accent-color);
-                transition: width 0.3s ease;
-            }
-
-            nav a:hover {
-                color: var(--accent-color);
-            }
-
-            nav a:hover::before {
-                width: calc(100% - 40px);
-            }
-
-            main {
-                padding: 40px 20px;
-            }
-
-            h1, h2, h3, h4, h5 {
-                color: var(--text-dark);
-                font-weight: 600;
-                line-height: 1.3;
-            }
-
-            h1.display-4 {
-                font-size: 2.8rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .lead {
-                font-size: 1.2rem;
-                color: var(--accent-color);
-                font-style: italic;
-                font-weight: 500;
-            }
-
-            p {
-                color: var(--text-dark);
-                margin-bottom: 1.5rem;
-                font-size: 16px;
-                line-height: 1.8;
-            }
-
-            a {
-                color: var(--accent-color);
-                text-decoration: underline;
-                transition: opacity 0.3s ease;
-            }
-
-            a:hover {
-                opacity: 0.8;
-            }
-
-            section {
-                margin-bottom: 4rem;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-                padding-bottom: 0;
-            }
-
-            section h3 a {
-                text-decoration: none;
-                transition: all 0.3s ease;
-                position: relative;
-            }
-
-            section h3 a:hover {
-                opacity: 1;
-                color: #333;
-            }
-
-            section h3 a::after {
-                content: '';
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: var(--accent-color);
-                transition: width 0.3s ease;
-            }
-
-            section h3 a:hover::after {
-                width: 100%;
-            }
-
-            ul.list-unstyled {
-                position: relative;
-            }
-
-            ul.list-unstyled li {
-                position: relative;
-                padding-left: 40px;
-                margin-bottom: 2.5rem;
-                transition: all 0.3s ease;
-            }
-
-            ul.list-unstyled li:hover {
-                padding-left: 50px;
-            }
-
-            ul.list-unstyled li::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 6px;
-                width: 12px;
-                height: 12px;
-                background-color: var(--accent-color);
-                border-radius: 50%;
-                transition: all 0.3s ease;
-                box-shadow: 0 0 0 0 rgba(216, 95, 47, 0.3);
-            }
-
-            ul.list-unstyled li:hover::before {
-                box-shadow: 0 0 0 8px rgba(216, 95, 47, 0.1);
-            }
-
-            .list-unstyled li time {
-                color: var(--accent-color);
-                font-weight: 600;
-                font-size: 14px;
-                display: block;
-                margin-bottom: 0.5rem;
-            }
-
-            .list-unstyled li h3 {
-                font-size: 1rem;
-                margin-bottom: 0.3rem;
-            }
-
-            .list-unstyled li p {
-                color: var(--text-light);
-                font-size: 15px;
-                margin-bottom: 0.5rem;
-            }
-
-            .badge {
-                background-color: #f0f0f0;
-                color: var(--text-dark);
-                padding: 0.4rem 0.8rem;
-                font-weight: 500;
-                font-size: 13px;
-                border-radius: 4px;
-                margin-right: 0.5rem;
-                margin-bottom: 0.5rem;
-                transition: all 0.3s ease;
-            }
-
-            code {
-                background-color: #f0f0f0;
-                padding: 2px 6px;
-                border-radius: 3px;
-                font-family: 'Monaco', 'Courier New', monospace;
-                color: var(--text-dark);
-            }
-
-            .text-muted {
-                color: var(--text-light) !important;
-            }
-
-            .lh-lg {
-                line-height: 1.8 !important;
-            }
-
-            /* Project styling */
-            .projects-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-                margin-bottom: 3rem;
-            }
-
-            .project-item {
-                padding-bottom: 2rem;
-                margin-bottom: 0;
-                border-bottom: 1px solid #f0f0f0;
-                transition: all 0.3s ease;
-            }
-
-            .projects-grid .project-item {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            .projects-grid .project-item:hover {
-                padding-left: 0;
-                transform: translateY(-5px);
-            }
-
-            .project-item:last-child {
-                border-bottom: none;
-            }
-
-            .project-item:hover {
-                padding-left: 20px;
-                padding-right: 0;
-            }
-
-            .project-item h3 {
-                transition: all 0.3s ease;
-            }
-
-            .project-item h3 a {
-                color: var(--text-dark);
-                text-decoration: none;
-                position: relative;
-                display: inline-block;
-            }
-
-            .project-item h3 a::after {
-                content: '';
-                position: absolute;
-                bottom: -3px;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: var(--accent-color);
-                transition: width 0.3s ease;
-            }
-
-            .project-item h3 a:hover {
-                color: var(--accent-color);
-                text-decoration: none;
-            }
-
-            .project-item h3 a:hover::after {
-                width: 100%;
-            }
-
-            @media (max-width: 768px) {
-                main {
-                    max-width: 100% !important;
-                    padding: 30px 20px;
-                }
-
-                h1.display-4 {
-                    font-size: 2rem;
-                }
-
-                nav a {
-                    padding: 0 12px;
-                    font-size: 14px;
-                }
-
-                section h2 {
-                    font-size: 1.5rem;
-                }
-            }
-        </style>
-
-        <!-- FAVICON -->
-        <!-- <link href="images/favicon.png" rel="shortcut icon"/> -->
-        <script src="plugins/nprogress/nprogress.js"></script>
-    </head>
-
-    <body id="body">
-        <!-- Navigation -->
-        <header class="py-5">
-            <nav class="container">
-                <ul class="nav justify-content-end" style="list-style: none; padding: 0; margin: 0;">
-                    <li class="nav-item mx-4" style="cursor: pointer;" onclick="navigator(this)">
-                        <a class="nav-link" style="font-style: italic; color: #333; text-decoration: none;">About</a>
-                    </li>
-                    <li class="nav-item mx-4" style="cursor: pointer;" onclick="navigator(this)">
-                        <a class="nav-link" style="font-style: italic; color: #333; text-decoration: none;">Projects</a>
-                    </li>
-                    <li class="nav-item mx-4" style="cursor: pointer;" onclick="navigator(this)">
-                        <a class="nav-link" style="font-style: italic; color: #333; text-decoration: none;">Blog</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
-        <main class="container" style="max-width: 900px;">
-            <!-- About Section -->
-            <section id="aboutSection" class="mb-5">
-                <div class="mb-5">
-                    <h1 class="display-4 mb-2" style="font-weight: 600;">Kartik Uppalapati</h1>
-                    <p class="lead" style="color: var(--info-dark); font-style: italic;">Software Engineer</p>
-                </div>
-
-                <div class="mb-5">
-                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
-                        Graduated from Purdue University in 2022 with a Bachelor's degree in Computer Science / Mathematics. 
-                        Since then, I've worked at Meta and General Motors on machine learning safety initiatives.
-                    </p>
-                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
-                        I'm a software engineer with a passion for machine learning, building full-stack applications, 
-                        analyzing complex data for model training. I specialize in creating elegant solutions 
-                        to challenging problems, with experience across AI infra, backend systems, machine learning, and data engineering.
-                    </p>
-                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
-                        Outside of coding, I enjoy playing basketball, gaming, exploring new technologies, and learning
-                        new tools to stay current in this fast-paced industry.
-                    </p>
-                    <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
-                        You can reach me at <code style="background-color: #f0f0f0; padding: 2px 6px; border-radius: 3px;">kartik0109@gmail.com</code>
-                        or connect with me on
-                        <a style="color: var(--info-dark); text-decoration: none; cursor: pointer;"
-                        onclick="window.open('https://www.linkedin.com/in/kartiku', '_blank');">LinkedIn</a>.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experienceSection" class="mb-5" style="display: none;">
-                <h2 class="h2 mb-4" style="font-weight: 600;">Experience</h2>
-                
-                <ul class="list-unstyled" style="position: relative; padding-left: 30px;">
-                    <!-- Timeline item -->
-                    <li class="mb-5" style="padding-left: 20px;">
-                        <div style="position: absolute; left: -10px; top: 0; width: 12px; height: 12px; background-color: var(--info-dark); border-radius: 50%;"></div>
-                        <time class="d-block mb-2" style="color: var(--info-dark); font-weight: 500;">Present</time>
-                        <h3 class="h5 mb-1" style="font-weight: 600;">Full Stack Software Engineer</h3>
-                        <p class="text-muted mb-2">Building web applications, APIs, and data solutions</p>
-                    </li>
-
-                    <li class="mb-5" style="padding-left: 20px;">
-                        <div style="position: absolute; left: -10px; top: 0; width: 12px; height: 12px; background-color: var(--info-dark); border-radius: 50%;"></div>
-                        <time class="d-block mb-2" style="color: #999; font-weight: 500;">2022 - Present</time>
-                        <h3 class="h5 mb-1" style="font-weight: 600;">Purdue University Graduate</h3>
-                        <p class="text-muted mb-2">B.S. in Computer Science and Mathematics</p>
-                    </li>
-
-                    <li class="mb-5" style="padding-left: 20px;">
-                        <div style="position: absolute; left: -10px; top: 0; width: 12px; height: 12px; background-color: var(--info-dark); border-radius: 50%;"></div>
-                        <time class="d-block mb-2" style="color: #999; font-weight: 500;">2020 - 2021</time>
-                        <h3 class="h5 mb-1" style="font-weight: 600;">Co-founder, MMT Tutoring</h3>
-                        <p class="text-muted mb-2">Built full-stack dashboard with Node.js, Express, and MySQL. Managed server infrastructure and security.</p>
-                    </li>
+        <main>
+            <section>
+                <h2 class="label">Experience</h2>
+                <ul class="dl">
+                    <li><span>Meta</span><span class="dash"></span><span class="meta">2026–</span></li>
+                    <li><span>General Motors</span><span class="dash"></span><span class="meta">2023–2026</span></li>
+                    <li><span>Engineering Innovation</span><span class="dash"></span><span class="meta">2021–2022</span></li>
                 </ul>
             </section>
-
-            <!-- Projects Section -->
-            <section id="projectsSection" class="mb-5" style="display: none;">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="mb-4">
-                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">AI / ML</h4>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">PyTorch</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">TensorFlow</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Scikit-learn</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">XGBoost</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Cvxpy</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Pandas</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">RAG</span>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">Languages</h4>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Python</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Java</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">JavaScript</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">C/C++</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">HTML/CSS</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Hack</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">PHP</span>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">Frameworks</h4>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">React</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Node.js</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Flask</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">JUnit</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Express</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Material UI</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Fast API</span>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <h4 class="mb-3" style="font-weight: 600; font-size: 16px;">Tools</h4>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">MySQL</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">PostgreSQL</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Docker</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">AWS/GCP</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Railway</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Supabase</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">Databricks</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 8px 12px; font-weight: 500;">XCode</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                        <div class="project-item mb-3" onclick="window.open('https://123mmt.github.io/', '_blank')" style="cursor: pointer;">
-                            <h3 class="h5 mb-2" style="font-weight: 600;">
-                                <a style="color: #333; text-decoration: none;">
-                                    MMT Tutoring
-                                </a>
-                            </h3>
-                            <p class="text-muted mb-2" style="font-size: 14px;">2020 - Present</p>
-                            <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
-                                As lead engineer and co-founder, developed a end to end website for a tutoring company.
-                                Started off with self hosted server infrastructure, SSL security, and a secure login
-                                workflow but scaled grew so switched to  Supabase and Railway.
-                                Gained hands-on experience with networking and deployment.
-                            </p>
-                            <div class="mt-3">
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Node.js</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Express</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">MySQL</span>
-                            </div>
-                        </div>
-                        <div class="project-item mb-3" onclick="window.open('https://github.com/KartikUppalapati/myShellProject', '_blank')" style="cursor: pointer;">
-                            <h3 class="h5 mb-2" style="font-weight: 600;">
-                                <a href="https://github.com/KartikUppalapati/myShellProject" style="color: #333; text-decoration: none;">
-                                    Unix Shell Implementation
-                                </a>
-                            </h3>
-                            <p class="text-muted mb-2" style="font-size: 14px;">2021</p>
-                            <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
-                                Rebuilt a command-line shell from scratch as a university project. This challenged me to rapidly 
-                                learn new languages and tools while implementing complex system-level concepts.
-                            </p>
-                            <div class="mt-3">
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">C</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Yacc</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Lex</span>
-                            </div>
-                        </div>
-                        <div class="project-item mb-3" onclick="window.open('https://github.com/KartikUppalapati/KartsDL', '_blank')" style="cursor: pointer;">
-                            <h3 class="h5 mb-2" style="font-weight: 600;">
-                                KDL - Music Downloader
-                            </h3>
-                            <p class="text-muted mb-2" style="font-size: 14px;">2022 - Present</p>
-                            <p class="lh-lg" style="font-size: 16px; line-height: 1.8; color: #333;">
-                                A music downloading application entirely in Electron for a modern and responsive UI. 
-                                Newest version features improved an cross-platform compatibility and integration with the Spotify APIs and microservices.
-                            </p>
-                            <div class="mt-3">
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">Electron</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">JavaScript</span>
-                                <span class="badge badge-light" style="background-color: #f0f0f0; color: #333; padding: 6px 10px; font-size: 12px; margin-right: 5px;">APIs</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <section>
+                <h2 class="label">Projects</h2>
+                <ul class="dl">
+                    <li><a href="https://123mmt.github.io/" target="_blank" rel="noopener">Learning Platform</a><span class="dash"></span><span class="meta">Node · Supabase</span></li>
+                    <li><a href="https://github.com/KartikUppalapati/KartsDL" target="_blank" rel="noopener">KDL music downloader</a><span class="dash"></span><span class="meta">Electron</span></li>
+                    <li><a href="https://github.com/KartikUppalapati/myShellProject" target="_blank" rel="noopener">Unix shell</a><span class="dash"></span><span class="meta">C · Lex · Yacc</span></li>
+                </ul>
+            </section>
+            <section>
+                <h2 class="label">Blog</h2>
+                <ul class="dl">
+                    <!-- New posts go at the top. Copy blog/template.html to start one. -->
+                    <li><a href="blog/ai-coding.html">I don't write code by hand anymore</a><span class="dash"></span><span class="meta">Nov 7, 2026</span></li>
+                </ul>
             </section>
         </main>
-    </body>
-
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </div>
 
     <script>
-        // Header navigation
-        var currSection = "aboutSection";
-        function navigator(headerObj)
-        {
-            // Hide old
-            document.getElementById(currSection).style.display = "none";
-
-            // Show new
-            var headerSectionName = headerObj.children[0].textContent.toLowerCase() + "Section";
-            var sectionObj = document.getElementById(headerSectionName);
-            sectionObj.style.display = "block";
-            currSection = headerSectionName;
+        // Coin flip: hover turns it over once, click/tap tosses it (1.5 turns, lands on the other side)
+        var coin = document.querySelector('.coin');
+        var inner = coin.querySelector('.coin-inner');
+        var angle = 0;
+        function turn(halves) {
+            angle += halves * 180;
+            inner.style.transform = 'rotateY(' + angle + 'deg)';
+            coin.classList.add('flipped');
         }
+        coin.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') turn(1); });
+        coin.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') turn(1); });
+        coin.addEventListener('click', function () { turn(3); });
+
+        // Email: copy to clipboard instead of opening the mail app
+        var copyBtn = document.querySelector('.copy');
+        var copyStatus = document.querySelector('.copy-status');
+        var copyTimer;
+        copyBtn.addEventListener('click', function () {
+            var email = copyBtn.dataset.email;
+            navigator.clipboard.writeText(email).then(function () {
+                copyStatus.textContent = 'Copied';
+            }, function () {
+                copyStatus.textContent = 'Copy failed, select it instead';
+            });
+            clearTimeout(copyTimer);
+            copyTimer = setTimeout(function () { copyStatus.textContent = ''; }, 2000);
+        });
     </script>
+</body>
 </html>
